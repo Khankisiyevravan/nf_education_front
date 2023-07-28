@@ -10,7 +10,7 @@ i18n
   .init({
     backend: {
       // translation file path
-      loadPath: "nf_education_front/assets/i18n/{{ns}}/{{lng}}.json",
+      loadPath: "assets/i18n/{{ns}}/{{lng}}.json",
     },
     fallbacklng: "az",
     // disabled in production
