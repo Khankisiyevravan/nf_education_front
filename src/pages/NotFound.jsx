@@ -8,7 +8,7 @@ function NotFound() {
           <div class="container decoration_wrap">
             <div class="error_image">
               <img
-                src="nf_education_front/images/error_image.png"
+                src="/nf_education_front/images/error_image.png"
                 alt="Collab – Online Learning Platform"
               />
             </div>
@@ -35,7 +35,7 @@ function NotFound() {
               data-wow-delay=".2s"
             >
               <img
-                src="nf_education_front/images/shape/shape_img_7.png"
+                src="/nf_education_front/images/shape/shape_img_7.png"
                 alt="Collab – Online Learning Platform"
               />
             </div>
@@ -44,7 +44,7 @@ function NotFound() {
               data-wow-delay=".4s"
             >
               <img
-                src="nf_education_front/images/shape/shape_img_7.png"
+                src="/nf_education_front/images/shape/shape_img_7.png"
                 alt="Collab – Online Learning Platform"
               />
             </div>
@@ -54,7 +54,7 @@ function NotFound() {
             data-wow-delay=".2s"
           >
             <img
-              src="nf_education_front/images/shape/shape_img_7.png"
+              src="/nf_education_front/images/shape/shape_img_7.png"
               alt="Collab – Online Learning Platform"
             />
           </div>
@@ -63,7 +63,7 @@ function NotFound() {
             data-wow-delay=".4s"
           >
             <img
-              src="nf_education_front/images/shape/shape_img_7.png"
+              src="/nf_education_front/images/shape/shape_img_7.png"
               alt="Collab – Online Learning Platform"
             />
           </div> */}

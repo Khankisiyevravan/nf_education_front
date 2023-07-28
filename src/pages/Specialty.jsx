@@ -65,7 +65,7 @@ function Specialty() {
                     <div className="course_info_card d-lg-none">
                       <div className="details_image">
                         <img
-                          src="nf_education_front/images/course/course_details_image_1.jpg"
+                          src="/nf_education_front/images/course/course_details_image_1.jpg"
                           alt="Collab – Online Learning Platform"
                         />
                       </div>
@@ -165,7 +165,7 @@ function Specialty() {
                               <div className="intro_video mb-3">
                                 <div className="video_wrap">
                                   <img
-                                    src="nf_education_front/images/video/video_poster_3.jpg"
+                                    src="/nf_education_front/images/video/video_poster_3.jpg"
                                     alt="Collab – Online Learning Platform"
                                   />
                                   <a
@@ -185,14 +185,14 @@ function Specialty() {
                                 <span>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip.svg"
+                                      src="/nf_education_front/images/icon/icon_clip.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
                                   </small>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip_white.svg"
+                                      src="/nf_education_front/images/icon/icon_clip_white.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
@@ -234,7 +234,7 @@ function Specialty() {
                               <div className="intro_video mb-3">
                                 <div className="video_wrap">
                                   <img
-                                    src="nf_education_front/images/video/video_poster_3.jpg"
+                                    src="/nf_education_front/images/video/video_poster_3.jpg"
                                     alt="Collab – Online Learning Platform"
                                   />
                                   <a
@@ -254,14 +254,14 @@ function Specialty() {
                                 <span>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip.svg"
+                                      src="/nf_education_front/images/icon/icon_clip.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
                                   </small>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip_white.svg"
+                                      src="/nf_education_front/images/icon/icon_clip_white.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
@@ -303,7 +303,7 @@ function Specialty() {
                               <div className="intro_video mb-3">
                                 <div className="video_wrap">
                                   <img
-                                    src="nf_education_front/images/video/video_poster_3.jpg"
+                                    src="/nf_education_front/images/video/video_poster_3.jpg"
                                     alt="Collab – Online Learning Platform"
                                   />
                                   <a
@@ -323,14 +323,14 @@ function Specialty() {
                                 <span>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip.svg"
+                                      src="/nf_education_front/images/icon/icon_clip.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
                                   </small>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip_white.svg"
+                                      src="/nf_education_front/images/icon/icon_clip_white.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
@@ -371,7 +371,7 @@ function Specialty() {
                               <div className="intro_video mb-3">
                                 <div className="video_wrap">
                                   <img
-                                    src="nf_education_front/images/video/video_poster_3.jpg"
+                                    src="/nf_education_front/images/video/video_poster_3.jpg"
                                     alt="Collab – Online Learning Platform"
                                   />
                                   <a
@@ -391,14 +391,14 @@ function Specialty() {
                                 <span>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip.svg"
+                                      src="/nf_education_front/images/icon/icon_clip.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
                                   </small>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip_white.svg"
+                                      src="/nf_education_front/images/icon/icon_clip_white.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
@@ -449,7 +449,7 @@ function Specialty() {
                               <div className="intro_video mb-3">
                                 <div className="video_wrap">
                                   <img
-                                    src="nf_education_front/images/video/video_poster_3.jpg"
+                                    src="/nf_education_front/images/video/video_poster_3.jpg"
                                     alt="Collab – Online Learning Platform"
                                   />
                                   <a
@@ -469,14 +469,14 @@ function Specialty() {
                                 <span>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip.svg"
+                                      src="/nf_education_front/images/icon/icon_clip.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
                                   </small>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip_white.svg"
+                                      src="/nf_education_front/images/icon/icon_clip_white.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
@@ -518,7 +518,7 @@ function Specialty() {
                               <div className="intro_video mb-3">
                                 <div className="video_wrap">
                                   <img
-                                    src="nf_education_front/images/video/video_poster_3.jpg"
+                                    src="/nf_education_front/images/video/video_poster_3.jpg"
                                     alt="Collab – Online Learning Platform"
                                   />
                                   <a
@@ -538,14 +538,14 @@ function Specialty() {
                                 <span>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip.svg"
+                                      src="/nf_education_front/images/icon/icon_clip.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
                                   </small>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip_white.svg"
+                                      src="/nf_education_front/images/icon/icon_clip_white.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
@@ -586,7 +586,7 @@ function Specialty() {
                               <div className="intro_video mb-3">
                                 <div className="video_wrap">
                                   <img
-                                    src="nf_education_front/images/video/video_poster_3.jpg"
+                                    src="/nf_education_front/images/video/video_poster_3.jpg"
                                     alt="Collab – Online Learning Platform"
                                   />
                                   <a
@@ -606,14 +606,14 @@ function Specialty() {
                                 <span>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip.svg"
+                                      src="/nf_education_front/images/icon/icon_clip.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
                                   </small>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip_white.svg"
+                                      src="/nf_education_front/images/icon/icon_clip_white.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
@@ -664,7 +664,7 @@ function Specialty() {
                               <div className="intro_video mb-3">
                                 <div className="video_wrap">
                                   <img
-                                    src="nf_education_front/images/video/video_poster_3.jpg"
+                                    src="/nf_education_front/images/video/video_poster_3.jpg"
                                     alt="Collab – Online Learning Platform"
                                   />
                                   <a
@@ -684,14 +684,14 @@ function Specialty() {
                                 <span>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip.svg"
+                                      src="/nf_education_front/images/icon/icon_clip.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
                                   </small>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip_white.svg"
+                                      src="/nf_education_front/images/icon/icon_clip_white.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
@@ -733,7 +733,7 @@ function Specialty() {
                               <div className="intro_video mb-3">
                                 <div className="video_wrap">
                                   <img
-                                    src="nf_education_front/images/video/video_poster_3.jpg"
+                                    src="/nf_education_front/images/video/video_poster_3.jpg"
                                     alt="Collab – Online Learning Platform"
                                   />
                                   <a
@@ -753,14 +753,14 @@ function Specialty() {
                                 <span>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip.svg"
+                                      src="/nf_education_front/images/icon/icon_clip.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
                                   </small>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip_white.svg"
+                                      src="/nf_education_front/images/icon/icon_clip_white.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
@@ -801,7 +801,7 @@ function Specialty() {
                               <div className="intro_video mb-3">
                                 <div className="video_wrap">
                                   <img
-                                    src="nf_education_front/images/video/video_poster_3.jpg"
+                                    src="/nf_education_front/images/video/video_poster_3.jpg"
                                     alt="Collab – Online Learning Platform"
                                   />
                                   <a
@@ -821,14 +821,14 @@ function Specialty() {
                                 <span>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip.svg"
+                                      src="/nf_education_front/images/icon/icon_clip.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
                                   </small>
                                   <small>
                                     <img
-                                      src="nf_education_front/images/icon/icon_clip_white.svg"
+                                      src="/nf_education_front/images/icon/icon_clip_white.svg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                     Resources
@@ -850,7 +850,7 @@ function Specialty() {
                             <div className="comment_author">
                               <div className="author_thumbnail">
                                 <img
-                                  src="nf_education_front/images/meta/student_thumbnail_6.jpg"
+                                  src="/nf_education_front/images/meta/student_thumbnail_6.jpg"
                                   alt="Collab – Online Learning Platform"
                                 />
                               </div>
@@ -880,7 +880,7 @@ function Specialty() {
                                 <div className="comment_author">
                                   <div className="author_thumbnail">
                                     <img
-                                      src="nf_education_front/images/meta/testimonial_thumbnail_1.jpg"
+                                      src="/nf_education_front/images/meta/testimonial_thumbnail_1.jpg"
                                       alt="Collab – Online Learning Platform"
                                     />
                                   </div>
@@ -912,7 +912,7 @@ function Specialty() {
                             <div className="comment_author">
                               <div className="author_thumbnail">
                                 <img
-                                  src="nf_education_front/images/meta/student_thumbnail_7.jpg"
+                                  src="/nf_education_front/images/meta/student_thumbnail_7.jpg"
                                   alt="Collab – Online Learning Platform"
                                 />
                               </div>
@@ -1018,7 +1018,7 @@ function Specialty() {
                   <div className="course_info_card d-none d-lg-block">
                     <div className="details_image">
                       <img
-                        src="nf_education_front/images/course/course_details_image_1.jpg"
+                        src="/nf_education_front/images/course/course_details_image_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
@@ -1101,7 +1101,7 @@ function Specialty() {
                         >
                           <span className="item_image">
                             <img
-                              src="nf_education_front/images/course/course_image_15.jpg"
+                              src="/nf_education_front/images/course/course_image_15.jpg"
                               alt="Collab – Online Learning Platform"
                             />{" "}
                           </span>
@@ -1122,7 +1122,7 @@ function Specialty() {
                         >
                           <span className="item_image">
                             <img
-                              src="nf_education_front/images/course/course_image_16.jpg"
+                              src="/nf_education_front/images/course/course_image_16.jpg"
                               alt="Collab – Online Learning Platform"
                             />{" "}
                           </span>
@@ -1143,7 +1143,7 @@ function Specialty() {
                         >
                           <span className="item_image">
                             <img
-                              src="nf_education_front/images/course/course_image_17.jpg"
+                              src="/nf_education_front/images/course/course_image_17.jpg"
                               alt="Collab – Online Learning Platform"
                             />{" "}
                           </span>

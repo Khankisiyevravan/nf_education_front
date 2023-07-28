@@ -102,7 +102,7 @@ function University() {
                         universityData?.attributes?.university_image?.data[0]
                           ?.attributes?.url
                       }`}
-                      // src="nf_education_front/images/banner/page_banner_image_1.jpg"
+                      // src="/nf_education_front/images/banner/page_banner_image_1.jpg"
                       alt="NF_education"
                     />
                   </div>
@@ -173,7 +173,7 @@ function University() {
                 <div className="service_item" data-magnetic>
                   <div className="item_icon">
                     <img
-                      src="nf_education_front/images/icon/icon_desktop.svg"
+                      src="/nf_education_front/images/icon/icon_desktop.svg"
                       alt="Collab – Online Learning Platform"
                     />
                   </div>
@@ -209,7 +209,7 @@ function University() {
                 <div className="service_item" data-magnetic>
                   <div className="item_icon">
                     <img
-                      src="nf_education_front/images/icon/icon_calendar.svg"
+                      src="/nf_education_front/images/icon/icon_calendar.svg"
                       alt="Collab – Online Learning Platform"
                     />
                   </div>
@@ -253,7 +253,7 @@ function University() {
                   <div className="intro_video mb-4">
                     <div className="video_wrap">
                       <img
-                        src="nf_education_front/images/video/video_poster_2.jpg"
+                        src="/nf_education_front/images/video/video_poster_2.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                       <a
@@ -282,14 +282,14 @@ function University() {
                     <span>
                       <small>
                         <img
-                          src="nf_education_front/images/icon/icon_clip.svg"
+                          src="/nf_education_front/images/icon/icon_clip.svg"
                           alt="Collab – Online Learning Platform"
                         />
                         Resources
                       </small>
                       <small>
                         <img
-                          src="nf_education_front/images/icon/icon_clip_white.svg"
+                          src="/nf_education_front/images/icon/icon_clip_white.svg"
                           alt="Collab – Online Learning Platform"
                         />
                         Resources
@@ -462,7 +462,7 @@ function University() {
                 <div className="col col-lg-6">
                   <div className="details_image image_widget">
                     <img
-                      src="nf_education_front/images/mentor/mentor_details_image_1.jpg"
+                      src="/nf_education_front/images/mentor/mentor_details_image_1.jpg"
                       alt="Collab – Online Learning Platform"
                     />
                   </div>
@@ -529,7 +529,7 @@ function University() {
                   <div className="mentor_image">
                     <a href="mentor_details.html">
                       <img
-                        src="nf_education_front/images/mentor/mentor_image_1.jpg"
+                        src="/nf_education_front/images/mentor/mentor_image_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -556,7 +556,7 @@ function University() {
                   <div className="mentor_image">
                     <a href="mentor_details.html">
                       <img
-                        src="nf_education_front/images/mentor/mentor_image_2.jpg"
+                        src="/nf_education_front/images/mentor/mentor_image_2.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -583,7 +583,7 @@ function University() {
                   <div className="mentor_image">
                     <a href="mentor_details.html">
                       <img
-                        src="nf_education_front/images/mentor/mentor_image_3.jpg"
+                        src="/nf_education_front/images/mentor/mentor_image_3.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -614,7 +614,7 @@ function University() {
               <div className="col col-lg-5 order-lg-last">
                 <div className="image_widget">
                   <img
-                    src="nf_education_front/images/about/about_image_5.jpg"
+                    src="/nf_education_front/images/about/about_image_5.jpg"
                     alt="Collab – Online Learning Platform"
                   />
                 </div>
@@ -657,7 +657,7 @@ function University() {
             data-parallax='{"y" : 130, "smoothness": 6}'
           >
             <img
-              src="nf_education_front/images/shape/shape_img_7.png"
+              src="/nf_education_front/images/shape/shape_img_7.png"
               alt="Collab – Online Learning Platform"
             />
           </div>
@@ -666,7 +666,7 @@ function University() {
             data-parallax='{"x" : -130, "smoothness": 6}'
           >
             <img
-              src="nf_education_front/images/shape/shape_img_7.png"
+              src="/nf_education_front/images/shape/shape_img_7.png"
               alt="Collab – Online Learning Platform"
             />
           </div>
@@ -675,7 +675,7 @@ function University() {
             data-parallax='{"y" : -130, "smoothness": 6}'
           >
             <img
-              src="nf_education_front/images/shape/shape_img_7.png"
+              src="/nf_education_front/images/shape/shape_img_7.png"
               alt="Collab – Online Learning Platform"
             />
           </div>
@@ -691,7 +691,7 @@ function University() {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="nf_education_front/images/course/course_image_1.jpg"
+                        src="/nf_education_front/images/course/course_image_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -741,7 +741,7 @@ function University() {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="nf_education_front/images/course/course_image_2.jpg"
+                        src="/nf_education_front/images/course/course_image_2.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -790,7 +790,7 @@ function University() {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="nf_education_front/images/course/course_image_3.jpg"
+                        src="/nf_education_front/images/course/course_image_3.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
