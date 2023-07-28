@@ -25,7 +25,7 @@ function App() {
       <Suspense fallback={null}>
         <Header lang={lang} setLang={setLang} />
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/nf_education_front" element={<Homepage />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/abroadstudy" element={<AbroadStudy />} />

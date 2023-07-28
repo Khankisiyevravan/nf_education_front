@@ -47,7 +47,7 @@ function CountryStudy({ lang, setLang }) {
             <div
               className="content_wrapper"
               //   style={{
-              //     backgroundImage: "url(/images/banner/page_banner_image.png)",
+              //     backgroundImage: "url(nf_education_front/images/banner/page_banner_image.png)",
               //   }}
               //   style={{
               //     backgroundImage: `url(http://localhost:1337${countryData?.attributes?.logo?.data?.attributes?.url})`,
@@ -105,7 +105,7 @@ function CountryStudy({ lang, setLang }) {
                     <div className="item_image">
                       <a data-cursor-text="View">
                         <img
-                          //   src="/images/course/course_image_1.jpg"
+                          //   src="nf_education_front/images/course/course_image_1.jpg"
                           src={`http://localhost:1337${uni?.attributes?.image?.data?.attributes?.url}`}
                           alt=""
                         />
@@ -173,7 +173,7 @@ function CountryStudy({ lang, setLang }) {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="/images/course/course_image_1.jpg"
+                        src="nf_education_front/images/course/course_image_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -221,7 +221,7 @@ function CountryStudy({ lang, setLang }) {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="/images/course/course_image_2.jpg"
+                        src="nf_education_front/images/course/course_image_2.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -268,7 +268,7 @@ function CountryStudy({ lang, setLang }) {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="/images/course/course_image_3.jpg"
+                        src="nf_education_front/images/course/course_image_3.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -315,7 +315,7 @@ function CountryStudy({ lang, setLang }) {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="/images/course/course_image_1.jpg"
+                        src="nf_education_front/images/course/course_image_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -362,7 +362,7 @@ function CountryStudy({ lang, setLang }) {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="/images/course/course_image_2.jpg"
+                        src="nf_education_front/images/course/course_image_2.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -679,9 +679,9 @@ function CountryStudy({ lang, setLang }) {
             <div
               className="newslatter_box"
               style={{
-                backgroundImage: "url(`/images/shape/shape_img_6.svg`)",
+                backgroundImage: "url(`nf_education_front/images/shape/shape_img_6.svg`)",
               }}
-              //   style="background-image: url(assets/images/shape/shape_img_6.svg)"
+              //   style="background-image: url(assetsnf_education_front/images/shape/shape_img_6.svg)"
             >
               <div className="row justify-content-center">
                 <div className="col col-lg-6">

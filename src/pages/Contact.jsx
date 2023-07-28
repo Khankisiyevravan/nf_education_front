@@ -48,10 +48,10 @@ function Contact() {
             <div
               className="content_wrapper"
               style={{
-                backgroundImage: "url(/images/banner/page_banner_image.png)",
+                backgroundImage: "url(nf_education_front/images/banner/page_banner_image.png)",
               }}
               //   style="
-              //     background-image: url(/images/banner/page_banner_image.png);
+              //     background-image: url(nf_education_front/images/banner/page_banner_image.png);
               //   "
             >
               <div className="row align-items-center">
@@ -264,7 +264,7 @@ function Contact() {
               data-wow-delay=".2s"
             >
               <img
-                src="/images/shape/shape_img_7.png"
+                src="nf_education_front/images/shape/shape_img_7.png"
                 alt="Collab – Online Learning Platform"
               />
             </div>
@@ -273,7 +273,7 @@ function Contact() {
               data-wow-delay=".4s"
             >
               <img
-                src="/images/shape/shape_img_7.png"
+                src="nf_education_front/images/shape/shape_img_7.png"
                 alt="Collab – Online Learning Platform"
               />
             </div>
@@ -283,7 +283,7 @@ function Contact() {
             data-wow-delay=".2s"
           >
             <img
-              src="/images/shape/shape_img_7.png"
+              src="nf_education_front/images/shape/shape_img_7.png"
               alt="Collab – Online Learning Platform"
             />
           </div>
@@ -292,7 +292,7 @@ function Contact() {
             data-wow-delay=".4s"
           >
             <img
-              src="/images/shape/shape_img_7.png"
+              src="nf_education_front/images/shape/shape_img_7.png"
               alt="Collab – Online Learning Platform"
             />
           </div>

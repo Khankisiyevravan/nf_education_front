@@ -9,9 +9,9 @@ function News() {
             <div
               class="content_wrapper"
               // style="
-              //   background-image: url(assets/images/banner/page_banner_image.png);
+              //   background-image: url(assetsnf_education_front/images/banner/page_banner_image.png);
               // "
-              style={{backgroundImage:"url('/images/banner/page_banner_image.png')"}}
+              style={{backgroundImage:"url('nf_education_front/images/banner/page_banner_image.png')"}}
             >
               <div class="row align-items-center">
                 <div class="col col-lg-6">
@@ -77,7 +77,7 @@ function News() {
                   <div class="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="assets/images/course/course_image_7.jpg"
+                        src="nf_education_front/images/course/course_image_7.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -126,7 +126,7 @@ function News() {
                   <div class="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="assets/images/course/course_image_6.jpg"
+                        src="nf_education_front/images/course/course_image_6.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -174,7 +174,7 @@ function News() {
                   <div class="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="assets/images/course/course_image_12.jpg"
+                        src="nf_education_front/images/course/course_image_12.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -222,7 +222,7 @@ function News() {
                   <div class="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="assets/images/course/course_image_13.jpg"
+                        src="nf_education_front/images/course/course_image_13.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -270,7 +270,7 @@ function News() {
                   <div class="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="assets/images/course/course_image_8.jpg"
+                        src="nf_education_front/images/course/course_image_8.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -319,7 +319,7 @@ function News() {
                   <div class="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="assets/images/course/course_image_9.jpg"
+                        src="nf_education_front/images/course/course_image_9.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -367,7 +367,7 @@ function News() {
                   <div class="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="assets/images/course/course_image_14.jpg"
+                        src="nf_education_front/images/course/course_image_14.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -416,7 +416,7 @@ function News() {
                   <div class="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="assets/images/course/course_image_10.jpg"
+                        src="nf_education_front/images/course/course_image_10.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -464,7 +464,7 @@ function News() {
                   <div class="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="assets/images/course/course_image_11.jpg"
+                        src="nf_education_front/images/course/course_image_11.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>

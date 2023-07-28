@@ -54,7 +54,7 @@ function Homepage() {
                   <div className="banner_image_1 decoration_wrap">
                     <div className="image_wrap">
                       <img
-                        src="/images/banner/hero_banner_img_1.jpg"
+                        src="nf_education_front/images/banner/hero_banner_img_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
@@ -66,7 +66,7 @@ function Homepage() {
                         <li>
                           <span>
                             <img
-                              src="/images/meta/student_thumbnail_1.png"
+                              src="nf_education_front/images/meta/student_thumbnail_1.png"
                               alt="Collab – Online Learning Platform"
                             />
                           </span>
@@ -74,7 +74,7 @@ function Homepage() {
                         <li>
                           <span>
                             <img
-                              src="/images/meta/student_thumbnail_2.png"
+                              src="nf_education_front/images/meta/student_thumbnail_2.png"
                               alt="Collab – Online Learning Platform"
                             />
                           </span>
@@ -82,7 +82,7 @@ function Homepage() {
                         <li>
                           <span>
                             <img
-                              src="/images/meta/student_thumbnail_3.png"
+                              src="nf_education_front/images/meta/student_thumbnail_3.png"
                               alt="Collab – Online Learning Platform"
                             />
                           </span>
@@ -90,7 +90,7 @@ function Homepage() {
                         <li>
                           <span>
                             <img
-                              src="/images/meta/student_thumbnail_4.png"
+                              src="nf_education_front/images/meta/student_thumbnail_4.png"
                               alt="Collab – Online Learning Platform"
                             />
                           </span>
@@ -98,7 +98,7 @@ function Homepage() {
                         <li>
                           <span>
                             <img
-                              src="/images/meta/student_thumbnail_5.png"
+                              src="nf_education_front/images/meta/student_thumbnail_5.png"
                               alt="Collab – Online Learning Platform"
                             />
                           </span>
@@ -110,7 +110,7 @@ function Homepage() {
                       data-parallax='{"y" : -130, "smoothness": 6}'
                     >
                       <img
-                        src="/images/shape/shape_img_1.png"
+                        src="nf_education_front/images/shape/shape_img_1.png"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
@@ -119,7 +119,7 @@ function Homepage() {
                       data-parallax='{"y" : 160, "smoothness": 6}'
                     >
                       <img
-                        src="/images/shape/shape_img_2.png"
+                        src="nf_education_front/images/shape/shape_img_2.png"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
@@ -139,7 +139,7 @@ function Homepage() {
                 </div>
                 <div className="image_widget">
                   <img
-                    src="/images/about/about_image_1.jpg"
+                    src="nf_education_front/images/about/about_image_1.jpg"
                     alt="Collab – Online Learning Platform"
                   />
                 </div>
@@ -162,7 +162,7 @@ function Homepage() {
                     <div className="service_item" data-magnetic>
                       <div className="item_icon">
                         <img
-                          src="/images/service/icon_academic_cap.svg"
+                          src="nf_education_front/images/service/icon_academic_cap.svg"
                           alt="Collab – Online Learning Platform"
                         />
                       </div>
@@ -175,7 +175,7 @@ function Homepage() {
                     <div className="service_item" data-magnetic>
                       <div className="item_icon">
                         <img
-                          src="/images/service/icon_physics.svg"
+                          src="nf_education_front/images/service/icon_physics.svg"
                           alt="Collab – Online Learning Platform"
                         />
                       </div>
@@ -188,7 +188,7 @@ function Homepage() {
                     <div className="service_item" data-magnetic>
                       <div className="item_icon">
                         <img
-                          src="/images/service/icon_communication.svg"
+                          src="nf_education_front/images/service/icon_communication.svg"
                           alt="Collab – Online Learning Platform"
                         />
                       </div>
@@ -201,7 +201,7 @@ function Homepage() {
                     <div className="service_item" data-magnetic>
                       <div className="item_icon">
                         <img
-                          src="/images/service/icon_diploma.svg"
+                          src="nf_education_front/images/service/icon_diploma.svg"
                           alt="Collab – Online Learning Platform"
                         />
                       </div>
@@ -389,7 +389,7 @@ function Homepage() {
                         <div className="item_image">
                           <a href="course_details.html" data-cursor-text="View">
                             <img
-                              src="/images/news/news1.webp"
+                              src="nf_education_front/images/news/news1.webp"
                               alt="Collab – Online Learning Platform"
                             />
                           </a>
@@ -449,13 +449,13 @@ function Homepage() {
                   <div className="col col-md-6 col-sm-6 col-6">
                     <div className="image_wrap">
                       <img
-                        src="/images/advertisement/grid_img_1.jpg"
+                        src="nf_education_front/images/advertisement/grid_img_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
                     <div className="image_wrap">
                       <img
-                        src="/images/advertisement/grid_img_2.jpg"
+                        src="nf_education_front/images/advertisement/grid_img_2.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
@@ -463,13 +463,13 @@ function Homepage() {
                   <div className="col col-md-6 col-sm-6 col-6">
                     <div className="image_wrap">
                       <img
-                        src="/images/advertisement/grid_img_3.jpg"
+                        src="nf_education_front/images/advertisement/grid_img_3.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
                     <div className="image_wrap">
                       <img
-                        src="/images/advertisement/grid_img_4.jpg"
+                        src="nf_education_front/images/advertisement/grid_img_4.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
@@ -479,7 +479,7 @@ function Homepage() {
                     data-parallax='{"y" : -80, "smoothness": 6}'
                   >
                     <img
-                      src="/images/shape/shape_img_3.png"
+                      src="nf_education_front/images/shape/shape_img_3.png"
                       alt="Collab – Online Learning Platform"
                     />
                   </div>
@@ -488,7 +488,7 @@ function Homepage() {
                     data-parallax='{"y" : 80, "smoothness": 6}'
                   >
                     <img
-                      src="/images/shape/shape_img_3.png"
+                      src="nf_education_front/images/shape/shape_img_3.png"
                       alt="Collab – Online Learning Platform"
                     />
                   </div>
@@ -503,7 +503,7 @@ function Homepage() {
               <div className="col col-lg-6">
                 <div className="image_widget">
                   <img
-                    src="/images/about/about_image_2.jpg"
+                    src="nf_education_front/images/about/about_image_2.jpg"
                     alt="Collab – Online Learning Platform"
                   />
                 </div>
@@ -684,7 +684,7 @@ function Homepage() {
               data-parallax='{"y" : 130, "smoothness": 6}'
             >
               <img
-                src="/images/shape/shape_img_4.png"
+                src="nf_education_front/images/shape/shape_img_4.png"
                 alt="Collab – Online Learning Platform"
               />
             </div>
@@ -693,7 +693,7 @@ function Homepage() {
               data-parallax='{"y" : -130, "smoothness": 6}'
             >
               <img
-                src="/images/shape/shape_img_5.png"
+                src="nf_education_front/images/shape/shape_img_5.png"
                 alt="Collab – Online Learning Platform"
               />
             </div>
@@ -755,7 +755,7 @@ function Homepage() {
                   <div className="testimonial_item">
                     <div className="testimonial_image">
                       <img
-                        src="/images/testimonial/testimonial_img_1.jpg"
+                        src="nf_education_front/images/testimonial/testimonial_img_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
@@ -802,7 +802,7 @@ function Homepage() {
                   <div className="testimonial_item">
                     <div className="testimonial_image">
                       <img
-                        src="/images/testimonial/testimonial_img_2.jpg"
+                        src="nf_education_front/images/testimonial/testimonial_img_2.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
@@ -849,7 +849,7 @@ function Homepage() {
                   <div className="testimonial_item">
                     <div className="testimonial_image">
                       <img
-                        src="/images/testimonial/testimonial_img_1.jpg"
+                        src="nf_education_front/images/testimonial/testimonial_img_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
@@ -896,7 +896,7 @@ function Homepage() {
                   <div className="testimonial_item">
                     <div className="testimonial_image">
                       <img
-                        src="/images/testimonial/testimonial_img_2.jpg"
+                        src="nf_education_front/images/testimonial/testimonial_img_2.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </div>
@@ -945,7 +945,7 @@ function Homepage() {
             <div
               className="newslatter_box"
               style={{
-                backgroundImage: "url(`/images/shape/shape_img_6.svg`)",
+                backgroundImage: "url(`nf_education_front/images/shape/shape_img_6.svg`)",
               }}
             >
               <div className="row justify-content-center">
