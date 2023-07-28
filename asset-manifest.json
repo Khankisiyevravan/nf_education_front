@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/nf_education_front/static/css/main.cb6973c9.css",
+    "main.js": "/nf_education_front/static/js/main.9943daeb.js",
+    "static/media/flaticonea25.svg?": "/nf_education_front/static/media/flaticonea25.b299ef3b7861e31e0f7f.svg",
+    "static/media/fa-light-300.ttf": "/nf_education_front/static/media/fa-light-300.e4e189103bc7da2cfb49.ttf",
+    "static/media/fa-regular-400.ttf": "/nf_education_front/static/media/fa-regular-400.c03c56dcbc7a76153c78.ttf",
+    "static/media/fa-solid-900.ttf": "/nf_education_front/static/media/fa-solid-900.d546d748f7c0e96132d4.ttf",
+    "static/media/fa-brands-400.ttf": "/nf_education_front/static/media/fa-brands-400.2008e6316b604f95d937.ttf",
+    "static/media/flaticonea25.eot?": "/nf_education_front/static/media/flaticonea25.eefaca7f756fdb325cdc.eot",
+    "static/media/flaticonea25.ttf?": "/nf_education_front/static/media/flaticonea25.b53f8869a7b3b23f0b3e.ttf",
+    "static/media/flaticonea25.woff?": "/nf_education_front/static/media/flaticonea25.7462525968d80d398d55.woff",
+    "static/media/flaticonea25.woff2?": "/nf_education_front/static/media/flaticonea25.e2a9831c0d6f87f011b0.woff2",
+    "index.html": "/nf_education_front/index.html",
+    "static/media/getFetch.cjs": "/nf_education_front/static/media/getFetch.40f37ddea2378391108f.cjs",
+    "main.cb6973c9.css.map": "/nf_education_front/static/css/main.cb6973c9.css.map",
+    "main.9943daeb.js.map": "/nf_education_front/static/js/main.9943daeb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb6973c9.css",
+    "static/js/main.9943daeb.js"
+  ]
+}
