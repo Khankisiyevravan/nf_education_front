@@ -1,38 +1,59 @@
-.App {
+#hm-page {
+  min-height: 250vh;
+}
+.expect_from_course.section_space_lg .col.col-lg-5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.expect_from_course.section_space_lg .btn.border_dark {
+  background-color: #47d975;
+  color: white;
+  border: rgb(71, 217, 117);
+}
+.expect_from_course.section_space_lg .btn.border_dark:hover {
+  box-shadow: 0 8px 24px 0 rgba(71, 217, 117, 0.4);
+}
+.counter_section.bg_light.section_space_md .counter_item {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.advertisement_section.bg_dark,
+.pricing_section.section_space_lg.bg_light {
+  overflow: hidden;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form_item textarea {
+  resize: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main_menu_list .dropdown.none > a:after {
+  display: none;
+}
+.testimonial_section.section_space_lg .swiper {
+  overflow: hidden;
+}
+.course_card.list_layout {
+  height: auto;
+}
+.course_card.list_layout img {
+  object-fit: contain;
+  /* max-height: 250px; */
+  /* height:100%; */
+}
+.course_card.list_layout .item_category_list li {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
 }
-
-.App-link {
-  color: #61dafb;
+.image_widget.page_banner_image.uni,
+.image_widget.page_banner_image.uni img {
+  height: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.info_list.unordered_list_block.specialist li i,
+.info_list.unordered_list_block.specialist li {
+  font-size: 25px;
+}
+.hero_banner.style_1 .banner_big_title {
+  max-width: 90%;
 }
