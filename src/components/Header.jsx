@@ -133,7 +133,7 @@ function Header({ lang, setLang }) {
                         >
                           <Link
                             className="nav-link"
-                            to={`/abroadstudy/${country?.id}`}
+                            to={`/nf_education_front/abroadstudy/${country?.id}`}
                             id="courses_layout_submenu"
                             role="button"
                             data-bs-toggle="dropdown"
@@ -151,7 +151,7 @@ function Header({ lang, setLang }) {
                                 (universitet, index) => (
                                   <li key={index}>
                                     <Link
-                                      to={`/abroadstudy/${country.id}/${universitet.id}`}
+                                      to={`/nf_education_front/abroadstudy/${country.id}/${universitet.id}`}
                                     >
                                       {" "}
                                       {universitet?.attributes?.name?.slice(
