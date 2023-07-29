@@ -51,7 +51,7 @@ function Header({ lang, setLang }) {
         <div className="row align-items-center">
           <div className="col col-lg-4 col-5">
             <div className="site_logo">
-              <Link className="site_link" to="/">
+              <Link className="site_link" to="/nf_education_front">
                 <img src="/images/logo/logo-f.png" alt="" />
 
                 {/* <img
@@ -71,7 +71,7 @@ function Header({ lang, setLang }) {
                 <ul className="main_menu_list unordered_list_center">
                   <li className="dropdown active none">
                     <Link
-                      to="/"
+                      to="/nf_education_front"
                       className="nav-link"
                       id="home_submenu"
                       role="button"
