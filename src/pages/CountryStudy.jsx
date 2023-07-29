@@ -105,7 +105,7 @@ function CountryStudy({ lang, setLang }) {
                     <div className="item_image">
                       <a data-cursor-text="View">
                         <img
-                          //   src="/nf_education_front/images/course/course_image_1.jpg"
+                          //   src="/images/course/course_image_1.jpg"
                           src={`https://nfeducationback-z9ad3.ondigitalocean.app${uni?.attributes?.image?.data?.attributes?.url}`}
                           alt=""
                         />
@@ -173,7 +173,7 @@ function CountryStudy({ lang, setLang }) {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="/nf_education_front/images/course/course_image_1.jpg"
+                        src="/images/course/course_image_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -221,7 +221,7 @@ function CountryStudy({ lang, setLang }) {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="/nf_education_front/images/course/course_image_2.jpg"
+                        src="/images/course/course_image_2.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -268,7 +268,7 @@ function CountryStudy({ lang, setLang }) {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="/nf_education_front/images/course/course_image_3.jpg"
+                        src="/images/course/course_image_3.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -315,7 +315,7 @@ function CountryStudy({ lang, setLang }) {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="/nf_education_front/images/course/course_image_1.jpg"
+                        src="/images/course/course_image_1.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>
@@ -362,7 +362,7 @@ function CountryStudy({ lang, setLang }) {
                   <div className="item_image">
                     <a href="course_details.html" data-cursor-text="View">
                       <img
-                        src="/nf_education_front/images/course/course_image_2.jpg"
+                        src="/images/course/course_image_2.jpg"
                         alt="Collab – Online Learning Platform"
                       />
                     </a>

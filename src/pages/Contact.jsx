@@ -264,7 +264,7 @@ function Contact() {
               data-wow-delay=".2s"
             >
               <img
-                src="/nf_education_front/images/shape/shape_img_7.png"
+                src="/images/shape/shape_img_7.png"
                 alt="Collab – Online Learning Platform"
               />
             </div>
@@ -273,7 +273,7 @@ function Contact() {
               data-wow-delay=".4s"
             >
               <img
-                src="/nf_education_front/images/shape/shape_img_7.png"
+                src="/images/shape/shape_img_7.png"
                 alt="Collab – Online Learning Platform"
               />
             </div>
@@ -283,7 +283,7 @@ function Contact() {
             data-wow-delay=".2s"
           >
             <img
-              src="/nf_education_front/images/shape/shape_img_7.png"
+              src="/images/shape/shape_img_7.png"
               alt="Collab – Online Learning Platform"
             />
           </div>
@@ -292,7 +292,7 @@ function Contact() {
             data-wow-delay=".4s"
           >
             <img
-              src="/nf_education_front/images/shape/shape_img_7.png"
+              src="/images/shape/shape_img_7.png"
               alt="Collab – Online Learning Platform"
             />
           </div>

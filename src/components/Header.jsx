@@ -51,7 +51,7 @@ function Header({ lang, setLang }) {
         <div className="row align-items-center">
           <div className="col col-lg-4 col-5">
             <div className="site_logo">
-              <Link className="site_link" to="/nf_education_front">
+              <Link className="site_link" to="/">
                 <img src="/images/logo/logo-f.png" alt="" />
 
                 {/* <img
@@ -71,7 +71,7 @@ function Header({ lang, setLang }) {
                 <ul className="main_menu_list unordered_list_center">
                   <li className="dropdown active none">
                     <Link
-                      to="/nf_education_front"
+                      to="/"
                       className="nav-link"
                       id="home_submenu"
                       role="button"
@@ -101,7 +101,7 @@ function Header({ lang, setLang }) {
                     }}
                   >
                     <Link
-                      to="/nf_education_front/abroadstudy"
+                      to="/abroadstudy"
                       className="nav-link"
                       id="service_submenu"
                       role="button"
@@ -133,7 +133,7 @@ function Header({ lang, setLang }) {
                         >
                           <Link
                             className="nav-link"
-                            to={`/nf_education_front/abroadstudy/${country?.id}`}
+                            to={`/abroadstudy/${country?.id}`}
                             id="courses_layout_submenu"
                             role="button"
                             data-bs-toggle="dropdown"
@@ -151,7 +151,7 @@ function Header({ lang, setLang }) {
                                 (universitet, index) => (
                                   <li key={index}>
                                     <Link
-                                      to={`/nf_education_front/abroadstudy/${country.id}/${universitet.id}`}
+                                      to={`/abroadstudy/${country.id}/${universitet.id}`}
                                     >
                                       {" "}
                                       {universitet?.attributes?.name?.slice(
@@ -329,22 +329,22 @@ function Header({ lang, setLang }) {
                   </li> */}
 
                   <li>
-                    <Link to="/nf_education_front/news" className="nav-link">
+                    <Link to="/news" className="nav-link">
                       {t("news")}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/nf_education_front/contact" className="nav-link">
+                    <Link to="/contact" className="nav-link">
                       {t("contact")}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/nf_education_front/about" className="nav-link">
+                    <Link to="/about" className="nav-link">
                       {t("about")}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/nf_education_front/faq" className="nav-link">
+                    <Link to="/faq" className="nav-link">
                       {t("faq")}
                     </Link>
                   </li>
