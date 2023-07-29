@@ -26,22 +26,22 @@ function App() {
         <Header lang={lang} setLang={setLang} />
         <Routes>
           <Route path="/nf_education_front" element={<Homepage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/abroadstudy" element={<AbroadStudy />} />
+          <Route path="/nf_education_front/about" element={<About />} />
+          <Route path="/nf_education_front/contact" element={<Contact />} />
+          <Route path="/nf_education_front/abroadstudy" element={<AbroadStudy />} />
           <Route
-            path="/abroadstudy/:country"
+            path="/nf_education_front/abroadstudy/:country"
             element={<CountryStudy lang={lang} setLang={setLang} />}
           />
           <Route
-            path="/abroadstudy/:country/:university"
+            path="/nf_education_front/abroadstudy/:country/:university"
             element={<University />}
           />
           <Route
-            path="/abroadstudy/:country/:university/:special"
+            path="/nf_education_front/abroadstudy/:country/:university/:special"
             element={<Specialty />}
           />
-          <Route path="/news" element={<News />} />
+          <Route path="/nf_education_front/news" element={<News />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
