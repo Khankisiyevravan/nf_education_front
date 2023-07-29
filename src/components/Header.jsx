@@ -101,7 +101,7 @@ function Header({ lang, setLang }) {
                     }}
                   >
                     <Link
-                      to="/nf_education_front/abroadstudy"
+                      to="/abroadstudy"
                       className="nav-link"
                       id="service_submenu"
                       role="button"
@@ -329,22 +329,22 @@ function Header({ lang, setLang }) {
                   </li> */}
 
                   <li>
-                    <Link to="/nf_education_front/news" className="nav-link">
+                    <Link to="/news" className="nav-link">
                       {t("news")}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/nf_education_front/contact" className="nav-link">
+                    <Link to="/contact" className="nav-link">
                       {t("contact")}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/nf_education_front/about" className="nav-link">
+                    <Link to="/about" className="nav-link">
                       {t("about")}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/nf_education_front/faq" className="nav-link">
+                    <Link to="/faq" className="nav-link">
                       {t("faq")}
                     </Link>
                   </li>
