@@ -50,7 +50,7 @@ function CountryStudy({ lang, setLang }) {
               //     backgroundImage: "url(nf_education_front/images/banner/page_banner_image.png)",
               //   }}
               //   style={{
-              //     backgroundImage: `url(http://localhost:1337${countryData?.attributes?.logo?.data?.attributes?.url})`,
+              //     backgroundImage: `url(https://nfeducationback-z9ad3.ondigitalocean.app${countryData?.attributes?.logo?.data?.attributes?.url})`,
               //   }}
             >
               <div className="row align-items-center">
@@ -84,7 +84,7 @@ function CountryStudy({ lang, setLang }) {
                 </div>
                 <div className="col col-lg-4">
                   <img
-                    src={`http://localhost:1337${countryData?.attributes?.logo?.data?.attributes?.url}`}
+                    src={`https://nfeducationback-z9ad3.ondigitalocean.app${countryData?.attributes?.logo?.data?.attributes?.url}`}
                     alt=""
                   />
                 </div>
@@ -106,7 +106,7 @@ function CountryStudy({ lang, setLang }) {
                       <a data-cursor-text="View">
                         <img
                           //   src="/nf_education_front/images/course/course_image_1.jpg"
-                          src={`http://localhost:1337${uni?.attributes?.image?.data?.attributes?.url}`}
+                          src={`https://nfeducationback-z9ad3.ondigitalocean.app${uni?.attributes?.image?.data?.attributes?.url}`}
                           alt=""
                         />
                         {}
