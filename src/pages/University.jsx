@@ -97,7 +97,7 @@ function University() {
                 <div className="col col-lg-5">
                   <div className="image_widget page_banner_image uni">
                     <img
-                      src={`http://localhost:1337${
+                      src={`https://nfeducationback-z9ad3.ondigitalocean.app${
                         universityData?.attributes?.university_image?.data &&
                         universityData?.attributes?.university_image?.data[0]
                           ?.attributes?.url
