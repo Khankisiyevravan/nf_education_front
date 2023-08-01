@@ -32,11 +32,6 @@ function Header({ lang, setLang }) {
       i18n.changeLanguage("az");
     }
     setLang(langCode);
-    // if (!langCode) {
-    //   localStorage.setItem("lang", "az");
-    // } else {
-    //   setLang(localStorage.getItem("lang"));
-    // }
     document.addEventListener("scroll", () => {
       if (!headerRef.current) return;
       if (window.scrollY > 100) {

@@ -51,10 +51,10 @@ function Contact() {
               className="content_wrapper"
               style={{
                 backgroundImage:
-                  "url(nf_education_front/images/banner/page_banner_image.png)",
+                  "url(/images/banner/page_banner_image.png)",
               }}
               //   style="
-              //     background-image: url(nf_education_front/images/banner/page_banner_image.png);
+              //     background-image: url(/images/banner/page_banner_image.png);
               //   "
             >
               <div className="row align-items-center">

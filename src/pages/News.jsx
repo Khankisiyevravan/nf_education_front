@@ -38,7 +38,7 @@ function News({ lang, setLang }) {
             <div
               class="content_wrapper"
               // style="
-              //   background-image: url(assetsnf_education_front/images/banner/page_banner_image.png);
+              //   background-image: url(/images/banner/page_banner_image.png);
               // "
               style={{
                 backgroundImage: "url('/images/banner/page_banner_image.png')",

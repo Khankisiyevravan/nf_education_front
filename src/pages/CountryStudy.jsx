@@ -61,7 +61,7 @@ function CountryStudy({ lang, setLang }) {
             <div
               className="content_wrapper"
               //   style={{
-              //     backgroundImage: "url(nf_education_front/images/banner/page_banner_image.png)",
+              //     backgroundImage: "url(/images/banner/page_banner_image.png)",
               //   }}
               //   style={{
               //     backgroundImage: `url(https://nfeducationback-z9ad3.ondigitalocean.app${countryData?.attributes?.logo?.data?.attributes?.url})`,
@@ -206,9 +206,9 @@ function CountryStudy({ lang, setLang }) {
               className="newslatter_box"
               style={{
                 backgroundImage:
-                  "url(`nf_education_front/images/shape/shape_img_6.svg`)",
+                  "url(`/images/shape/shape_img_6.svg`)",
               }}
-              //   style="background-image: url(assetsnf_education_front/images/shape/shape_img_6.svg)"
+              //   style="background-image: url(/images/shape/shape_img_6.svg)"
             >
               <div className="row justify-content-center">
                 <div className="col col-lg-6">

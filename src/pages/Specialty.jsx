@@ -1169,9 +1169,9 @@ function Specialty() {
             <div
               className="newslatter_box"
               style={{
-                backgroundImage: "url(`nf_education_front/images/shape/shape_img_6.svg`)",
+                backgroundImage: "url(`/images/shape/shape_img_6.svg`)",
               }}
-              //   style="background-image: url(assetsnf_education_front/images/shape/shape_img_6.svg)"
+              //   style="background-image: url(/images/shape/shape_img_6.svg)"
             >
               <div className="row justify-content-center">
                 <div className="col col-lg-6">
