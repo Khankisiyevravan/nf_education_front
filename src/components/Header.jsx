@@ -18,6 +18,7 @@ function Header({ lang, setLang }) {
   const openDropdown = (e) => {
     // e.target.classList.toggle("show");
     // console.log();
+    console.log("header work")
     if ([...e.target.classList].some((a) => a === "btn-drop")) {
       e.target
         ?.closest(".dropdown")
