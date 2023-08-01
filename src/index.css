@@ -2626,9 +2626,9 @@ blockquote p {
   color: #035ab2;
   background-color: #f6f6f6;
 }
-.main_menu_list > li:hover > a:after {
+/* .main_menu_list > li:hover > a:after {
   transform: rotateX(-180deg);
-}
+} */
 .main_menu_list .dropdown > a {
   position: relative;
 }
@@ -26244,9 +26244,9 @@ blockquote p {
   color: #035ab2;
   background-color: #f6f6f6;
 }
-.main_menu_list > li:hover > a:after {
+/* .main_menu_list > li:hover > a:after {
   transform: rotateX(-180deg);
-}
+} */
 .main_menu_list .dropdown > a {
   position: relative;
 }

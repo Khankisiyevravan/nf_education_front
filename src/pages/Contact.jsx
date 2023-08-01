@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import axios from "../api/axios";
+import { useTranslation } from "react-i18next";
 function Contact() {
+  const { t } = useTranslation(["contact"]);
   const [contactData, setContactData] = useState({
     full_name: "",
     email: "",
@@ -48,7 +50,8 @@ function Contact() {
             <div
               className="content_wrapper"
               style={{
-                backgroundImage: "url(nf_education_front/images/banner/page_banner_image.png)",
+                backgroundImage:
+                  "url(nf_education_front/images/banner/page_banner_image.png)",
               }}
               //   style="
               //     background-image: url(nf_education_front/images/banner/page_banner_image.png);
@@ -62,32 +65,8 @@ function Contact() {
                     </li>
                     <li>Contact Us</li>
                   </ul>
-                  <h1 className="page_title">Bizimlə Əlaqə</h1>
-                  <p className="page_description">
-                    Bizimlə əlaqə saxlayın və arzuladığınız təhsil təcrübəsini
-                    reallığa çevirmək üçün bir addım atın. Ekspert
-                    məsləhətçilərimiz suallarınızı cavablandırmaq və
-                    ehtiyaclarınız üçün ən yaxşı həlli təmin etmək üçün
-                    buradadır. Sizi dəstəkləməkdən və bələdçilik etməkdən məmnun
-                    olarıq. Əlaqə formasını doldurun və ya aşağıdakı əlaqə
-                    məlumatlarımız vasitəsilə bizimlə əlaqə saxlayın. Biz ən
-                    qısa zamanda sizinlə əlaqə saxlayacağıq. Sizə kömək etməyi
-                    səbirsizliklə gözləyirik!
-                  </p>
-                  {/* <form action="#">
-                    <div className="form_item mb-0">
-                      <input
-                        type="search"
-                        name="search"
-                        placeholder="What do you want to learn ?"
-                      />
-                      <button type="submit" className="btn btn_dark">
-                        <span>
-                          <small>Search</small> <small>Search</small>
-                        </span>
-                      </button>
-                    </div>
-                  </form> */}
+                  <h1 className="page_title">{t("title1")}</h1>
+                  <p className="page_description">{t("text1")}</p>
                 </div>
               </div>
             </div>
@@ -99,7 +78,7 @@ function Contact() {
               <div className="col col-lg-5">
                 <div className="pe-lg-5">
                   <div className="section_heading">
-                    <h2 className="heading_text">Əlaqə məlumatlarımız</h2>
+                    <h2 className="heading_text">{t("contactInfo")}</h2>
                     {/* <p className="heading_description mb-0">
                       Viverra maecenas accumsan lacus vel facilisis volutpat.
                       Faucibus purus in massa tempor nec feugiat nisl
@@ -110,7 +89,7 @@ function Contact() {
                       <i className="fas fa-phone"></i>
                     </div>
                     <div className="item_content">
-                      <h3 className="item_title">Call Us</h3>
+                      <h3 className="item_title">{t("callUs")}</h3>
                       <p className="mb-0"> (+380) 63 450 86 13</p>
                       <p className="mb-0"> (+994) 77 325 93 04</p>
                     </div>
@@ -120,7 +99,7 @@ function Contact() {
                       <i className="fas fa-envelope"></i>
                     </div>
                     <div className="item_content">
-                      <h3 className="item_title">Email Address</h3>
+                      <h3 className="item_title">{t("emailAddress")}</h3>
                       <p className="mb-0">nnfeducation@gmail.com</p>
                       <p className="mb-0">nfeducation@gmail.com</p>
                     </div>
@@ -130,9 +109,9 @@ function Contact() {
                       <i className="fas fa-location-dot"></i>
                     </div>
                     <div className="item_content">
-                      <h3 className="item_title">Ünvan</h3>
-                      <p className="mb-0">31 Sunset Road, Gales Ferry,</p>
-                      <p className="mb-0">6335 United States</p>
+                      <h3 className="item_title">{t("location")}</h3>
+                      <p className="mb-0">Nizami</p>
+                      <p className="mb-0">Caspian Plaza</p>
                     </div>
                   </div>
                 </div>
@@ -153,9 +132,7 @@ function Contact() {
             <div className="row justify-content-center">
               <div className="col col-lg-7">
                 <div className="section_heading text-center">
-                  <h2 className="heading_text mb-0">
-                    Sizə kömək etmək üçün dəstək qrupumuzla əlaqə saxlayın
-                  </h2>
+                  <h2 className="heading_text mb-0">{t("title2")}</h2>
                 </div>
               </div>
             </div>
@@ -166,7 +143,7 @@ function Contact() {
                     <div className="col col-md-6">
                       <div className="form_item m-0">
                         <label htmlFor="input_name" className="input_title">
-                          Ad Soyad
+                          {t("full_name")}
                         </label>
                         <input
                           id="input_name"
@@ -180,7 +157,7 @@ function Contact() {
                     <div className="col col-md-6">
                       <div className="form_item m-0">
                         <label htmlFor="input_email" className="input_title">
-                          Email
+                          {t("email")}
                         </label>
                         <input
                           id="input_email"
@@ -194,7 +171,7 @@ function Contact() {
                     <div className="col col-md-6">
                       <div className="form_item m-0">
                         <label htmlFor="input_phone" className="input_title">
-                          Telefon nömrə
+                          {t("phoneNumber")}
                         </label>
                         <input
                           id="input_phone"
@@ -208,7 +185,7 @@ function Contact() {
                     <div className="col col-md-6">
                       <div className="form_item m-0">
                         <label htmlFor="input_jubject" className="input_title">
-                          Mövzu
+                          {t("subject")}
                         </label>
                         <select
                           name="title"
@@ -217,31 +194,33 @@ function Contact() {
                           defaultValue={"title"}
                         >
                           <option value="title" selected={"selected"}>
-                            Seçim
+                            {t("choose")}
                           </option>
-                          <option value="Xaricde Tehsil">Xaricdə Təhsil</option>
+                          <option value="Xaricde Tehsil">
+                            {t("abroadStudy")}
+                          </option>
                           <option value="Ukraynada Tehsil">
-                            Ukraynada Təhsil
+                            {t("ukraine")}
                           </option>
                           <option value="Turkiyede Tehsil">
-                            Türkiyədə Təhsil
+                            {t("turkey")}
                           </option>
                           <option value="Almaniyada Tehsil">
-                            Almaniyada Təhsil
+                            {t("germany")}
                           </option>
-                          <option value="Polsada Tehsil">Polşada Təhsil</option>
+                          <option value="Polsada Tehsil">{t("poland")}</option>
                         </select>
                       </div>
                     </div>
                     <div className="col">
                       <div className="form_item">
                         <label htmlFor="input_message" className="input_title">
-                          Mesaj
+                          {t("message")}
                         </label>
                         <textarea
                           id="input_message"
                           name="messagee"
-                          placeholder="Mövzunuz haqqında yazın"
+                          placeholder={t("writeAboutYourSubject")}
                           onChange={handleChange}
                         ></textarea>
                       </div>
@@ -250,8 +229,8 @@ function Contact() {
                         onClick={sendData}
                       >
                         <span>
-                          <small>Müraciətini göndər</small>
-                          <small>Müraciətini göndər</small>
+                          <small>{t("btn")}</small>
+                          <small>{t("btn")}</small>
                         </span>
                       </button>
                     </div>

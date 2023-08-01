@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "../api/axios";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 function Header({ lang, setLang }) {
   const headerRef = useRef();
+  const location = useLocation();
   const [countries, setCountries] = useState([]);
+  const [navbarShow, setNavbarShow] = useState(false);
   const { i18n, t } = useTranslation(["common"]);
   // console.log(t);
   const changeHandleLanguage = (e) => {
@@ -13,10 +15,20 @@ function Header({ lang, setLang }) {
     i18next.changeLanguage(e.target.value);
     setLang(e.target.value);
   };
+  const openDropdown = (e) => {
+    // e.target.classList.toggle("show");
+    // console.log();
+    if ([...e.target.classList].some((a) => a === "btn-drop")) {
+      e.target
+        ?.closest(".dropdown")
+        ?.querySelector(".dropdown-menu")
+        ?.classList.toggle("show");
+    }
+  };
   useEffect(() => {
     let langCode = localStorage.getItem("i18nextLng");
     if (langCode?.length > 2) {
-      i18next.changeLanguage("az");
+      i18n.changeLanguage("az");
     }
     setLang(langCode);
     // if (!langCode) {
@@ -34,17 +46,41 @@ function Header({ lang, setLang }) {
     });
   }, []);
   useEffect(() => {
-    axios
-      .get(`/api/countries?locale=${lang}&&populate=*`)
-      .then((response) => {
-        console.log(response);
-        setCountries(response?.data?.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
     console.log(lang);
+    if (lang.length > 2) {
+      axios
+        .get(`/api/countries?locale=az&&populate=*`)
+        .then((response) => {
+          console.log(lang);
+          console.log(response);
+          setCountries(response?.data?.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      axios
+        .get(`/api/countries?locale=${lang}&&populate=*`)
+        .then((response) => {
+          console.log(lang);
+          console.log(response);
+          setCountries(response?.data?.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, [lang]);
+  useEffect(() => {
+    [...document.querySelectorAll(".dropdown-menu")].map((a) => {
+      console.log(a);
+      a.classList.remove("show");
+      setNavbarShow(false);
+    });
+    document
+      ?.querySelector(".mobile_menu_btn")
+      ?.setAttribute("aria-expanded", "false");
+  }, [location]);
   return (
     <header className="site_header site_header_1" ref={headerRef}>
       <div className="container">
@@ -53,11 +89,6 @@ function Header({ lang, setLang }) {
             <div className="site_logo">
               <Link className="site_link" to="/">
                 <img src="/images/logo/logo-f.png" alt="" />
-
-                {/* <img
-                  src={`http://localhost:1337${countries[0]?.attributes?.logo?.data?.attributes?.url}`}
-                  alt=""
-                /> */}
                 <span>NF Education</span>
               </Link>
             </div>
@@ -65,7 +96,11 @@ function Header({ lang, setLang }) {
           <div className="col col-lg-7 col-2">
             <nav className="main_menu navbar navbar-expand-lg">
               <div
-                className="main_menu_inner collapse navbar-collapse justify-content-center"
+                className={
+                  navbarShow
+                    ? "main_menu_inner collapse navbar-collapse justify-content-center show"
+                    : "main_menu_inner collapse navbar-collapse justify-content-center"
+                }
                 id="main_menu_dropdown"
               >
                 <ul className="main_menu_list unordered_list_center">
@@ -83,24 +118,33 @@ function Header({ lang, setLang }) {
                   </li>
                   <li
                     className="dropdown fff"
-                    onMouseMove={(e) =>
-                      e.target
-                        ?.closest(".dropdown")
-                        ?.querySelector(".dropdown-menu")
-                        ?.classList.add("show")
-                    }
-                    onMouseLeave={(e) => {
-                      e.target
-                        ?.closest(".dropdown")
-                        ?.querySelector(".dropdown-menu")
-                        ?.classList.remove("show");
-                      e.target
-                        ?.closest(".dropdown.fff")
-                        ?.querySelector(".dropdown-menu")
-                        ?.classList.remove("show");
-                    }}
+                    // onMouseMove={(e) =>
+                    //   e.target
+                    //     ?.closest(".dropdown")
+                    //     ?.querySelector(".dropdown-menu")
+                    //     ?.classList.add("show")
+                    // }
+                    // onMouseLeave={(e) => {
+                    //   e.target
+                    //     ?.closest(".dropdown")
+                    //     ?.querySelector(".dropdown-menu")
+                    //     ?.classList.remove("show");
+                    //   e.target
+                    //     ?.closest(".dropdown.fff")
+                    //     ?.querySelector(".dropdown-menu")
+                    //     ?.classList.remove("show");
+                    // }}
                   >
                     <Link
+                      onClick={(e) => {
+                        console.log(e.target.classList);
+                        openDropdown(e);
+                        if (
+                          [...e.target.classList].some((a) => a === "btn-drop")
+                        ) {
+                          e.preventDefault();
+                        }
+                      }}
                       to="/abroadstudy"
                       className="nav-link"
                       id="service_submenu"
@@ -109,6 +153,7 @@ function Header({ lang, setLang }) {
                       aria-expanded="false"
                     >
                       {t("abroadstudy")}
+                      <button className="btn-drop"></button>
                     </Link>
                     <ul
                       className="dropdown-menu"
@@ -118,18 +163,19 @@ function Header({ lang, setLang }) {
                         <li
                           key={index}
                           className="dropdown"
-                          onMouseMove={(e) =>
-                            e.target
-                              ?.closest(".dropdown")
-                              ?.querySelector(".dropdown-menu")
-                              ?.classList.add("show")
-                          }
-                          onMouseLeave={(e) => {
-                            e.target
-                              ?.closest(".dropdown")
-                              ?.querySelector(".dropdown-menu")
-                              ?.classList.remove("show");
-                          }}
+                          onClick={openDropdown}
+                          // onMouseMove={(e) =>
+                          //   e.target
+                          //     ?.closest(".dropdown")
+                          //     ?.querySelector(".dropdown-menu")
+                          //     ?.classList.add("show")
+                          // }
+                          // onMouseLeave={(e) => {
+                          //   e.target
+                          //     ?.closest(".dropdown")
+                          //     ?.querySelector(".dropdown-menu")
+                          //     ?.classList.remove("show");
+                          // }}
                         >
                           <Link
                             className="nav-link"
@@ -169,165 +215,6 @@ function Header({ lang, setLang }) {
                       ))}
                     </ul>
                   </li>
-                  {/* <li
-                    className="dropdown fff"
-                    onMouseMove={(e) =>
-                      e.target
-                        .closest(".dropdown")
-                        .querySelector(".dropdown-menu")
-                        .classList.add("show")
-                    }
-                    onMouseLeave={(e) => {
-                      e.target
-                        .closest(".dropdown")
-                        .querySelector(".dropdown-menu")
-                        .classList.remove("show");
-                      e.target
-                        .closest(".dropdown.fff")
-                        .querySelector(".dropdown-menu")
-                        .classList.remove("show");
-                    }}
-                  >
-                    <a
-                      className="nav-link"
-                      href="#"
-                      id="pages_submenu"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Pages
-                    </a>
-                    <ul
-                      className="dropdown-menu"
-                      aria-labelledby="pages_submenu"
-                    >
-                      <li>
-                        <a href="about.html">About</a>
-                      </li>
-                      <li
-                        className="dropdown"
-                        onMouseMove={(e) =>
-                          e.target
-                            .closest(".dropdown")
-                            .querySelector(".dropdown-menu")
-                            .classList.add("show")
-                        }
-                        onMouseLeave={(e) => {
-                          e.target
-                            .closest(".dropdown")
-                            .querySelector(".dropdown-menu")
-                            .classList.remove("show");
-                        }}
-                      >
-                        <a
-                          className="nav-link"
-                          href="#"
-                          id="mentors_submenu"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          Our Mentors
-                        </a>
-                        <ul
-                          className="dropdown-menu"
-                          aria-labelledby="mentors_submenu"
-                        >
-                          <li>
-                            <a href="mentor.html">Mentors</a>
-                          </li>
-                          <li>
-                            <a href="mentor_details.html">Mentors Details</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="faq.html">F.A.Q.</a>
-                      </li>
-                      <li
-                        className="dropdown"
-                        onMouseMove={(e) =>
-                          e.target
-                            .closest(".dropdown")
-                            .querySelector(".dropdown-menu")
-                            .classList.add("show")
-                        }
-                        onMouseLeave={(e) => {
-                          e.target
-                            .closest(".dropdown")
-                            .querySelector(".dropdown-menu")
-                            .classList.remove("show");
-                        }}
-                      >
-                        <a
-                          className="nav-link"
-                          href="#"
-                          id="events_submenu"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          Our Events
-                        </a>
-                        <ul
-                          className="dropdown-menu"
-                          aria-labelledby="events_submenu"
-                        >
-                          <li>
-                            <a href="event.html">Events</a>
-                          </li>
-                          <li>
-                            <a href="event_details.html">Event Details</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="pricing.html">Pricing</a>
-                      </li>
-                      <li>
-                        <a href="error.html">404 Error</a>
-                      </li>
-                    </ul>
-                  </li> */}
-                  {/* <li
-                    className="dropdown"
-                    onMouseMove={(e) =>
-                      e.target
-                        .closest(".dropdown")
-                        .querySelector(".dropdown-menu")
-                        .classList.add("show")
-                    }
-                    onMouseLeave={(e) => {
-                      e.target
-                        .closest(".dropdown")
-                        .querySelector(".dropdown-menu")
-                        .classList.remove("show");
-                    }}
-                  >
-                    <a
-                      className="nav-link"
-                      href="#"
-                      id="blog_submenu"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Blog
-                    </a>
-                    <ul
-                      className="dropdown-menu"
-                      aria-labelledby="blog_submenu"
-                    >
-                      <li>
-                        <a href="blog.html">Our Blogs</a>
-                      </li>
-                      <li>
-                        <a href="blog_details.html">Blog Details</a>
-                      </li>
-                    </ul>
-                  </li> */}
-
                   <li>
                     <Link to="/news" className="nav-link">
                       {t("news")}
@@ -363,6 +250,35 @@ function Header({ lang, setLang }) {
                   aria-controls="main_menu_dropdown"
                   aria-expanded="false"
                   aria-label="Toggle navigation"
+                  onClick={(e) => {
+                    e.target.closest("button").classList.toggle("collapsed");
+                    console.log(
+                      e.target.closest("button").getAttribute("aria-expanded")
+                    );
+                    if (
+                      e.target
+                        .closest("button")
+                        .getAttribute("aria-expanded") == "true"
+                    ) {
+                      e.target
+                        .closest("button")
+                        .setAttribute("aria-expanded", "false");
+                      setNavbarShow(false);
+                    } else {
+                      e.target
+                        .closest("button")
+                        .setAttribute("aria-expanded", "true");
+                      setNavbarShow(true);
+                    }
+                    // e.target
+                    //   .closest("button")
+                    //   .setAttribute(
+                    //     "aria-expanded",
+                    //     !e.target
+                    //       .closest("button")
+                    //       .getAttribute("aria-expanded")
+                    //   );
+                  }}
                 >
                   <i className="far fa-bars"></i>
                 </button>

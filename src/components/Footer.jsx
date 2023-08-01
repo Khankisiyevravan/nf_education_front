@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import axios from "../api/axios";
 
-function Footer() {
+function Footer({ lang, setLang }) {
+  let { t } = useTranslation(["common"]);
+  console.log(t("news"));
+  const [news, setNews] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`/api/xebers?locale=${lang}&&populate=*`)
+      .then((response) => {
+        console.log(response?.data?.data);
+        setNews(response?.data?.data.slice(0, 2));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [lang]);
+  // useEffect(() => {
+  //   t = useTranslation(["common"]);
+  // }, []);
   return (
     <footer className="site_footer">
       <div className="footer_widget_area">
@@ -16,10 +35,7 @@ function Footer() {
                     />
                   </a>
                 </div>
-                <p>
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat
-                </p>
+                <p>{t("footerSlogan")}</p>
                 <ul className="social_links unordered_list">
                   <li>
                     <a href="#!">
@@ -48,14 +64,14 @@ function Footer() {
               <div className="row">
                 <div className="col col-md-4 col-sm-4">
                   <div className="footer_widget">
-                    <h3 className="footer_widget_title">Links</h3>
+                    <h3 className="footer_widget_title">{t("links")}</h3>
                     <ul className="page_list unordered_list_block">
                       <li>
                         <a href="about.html">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
-                          <span className="item_text">About</span>
+                          <span className="item_text">{t("about")}</span>
                         </a>
                       </li>
                       <li>
@@ -63,7 +79,7 @@ function Footer() {
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
-                          <span className="item_text">Courses</span>
+                          <span className="item_text">{t("universities")}</span>
                         </a>
                       </li>
                       <li>
@@ -71,38 +87,38 @@ function Footer() {
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
-                          <span className="item_text">Mentors</span>
+                          <span className="item_text">{t("news")}</span>
                         </a>
                       </li>
-                      <li>
+                      {/* <li>
                         <a href="pricing.html">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
                           <span className="item_text">Prices</span>
                         </a>
-                      </li>
-                      <li>
+                      </li> */}
+                      {/* <li>
                         <a href="event.html">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
                           <span className="item_text">Events</span>
                         </a>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                 </div>
                 <div className="col col-md-4 col-sm-4">
                   <div className="footer_widget">
-                    <h3 className="footer_widget_title">Class</h3>
+                    <h3 className="footer_widget_title">{t("abroadstudy")}</h3>
                     <ul className="page_list unordered_list_block">
                       <li>
                         <a href="#!">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
-                          <span className="item_text">Programming</span>
+                          <span className="item_text">{t("ukraine")}</span>
                         </a>
                       </li>
                       <li>
@@ -110,7 +126,7 @@ function Footer() {
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
-                          <span className="item_text">Art & Design</span>
+                          <span className="item_text">{t("germany")}</span>
                         </a>
                       </li>
                       <li>
@@ -118,7 +134,7 @@ function Footer() {
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
-                          <span className="item_text">Business</span>
+                          <span className="item_text">{t("turkey")}</span>
                         </a>
                       </li>
                       <li>
@@ -126,15 +142,7 @@ function Footer() {
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
-                          <span className="item_text">Engineering</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#!">
-                          <span className="item_icon">
-                            <i className="fas fa-caret-right"></i>
-                          </span>
-                          <span className="item_text">Photography</span>
+                          <span className="item_text">{t("poland")}</span>
                         </a>
                       </li>
                     </ul>
@@ -142,14 +150,14 @@ function Footer() {
                 </div>
                 <div className="col col-md-4 col-sm-4">
                   <div className="footer_widget">
-                    <h3 className="footer_widget_title">Support</h3>
+                    <h3 className="footer_widget_title">{t("support")}</h3>
                     <ul className="page_list unordered_list_block">
                       <li>
                         <a href="contact.html">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
-                          <span className="item_text">Help Center</span>
+                          <span className="item_text">{t("contact")}</span>
                         </a>
                       </li>
                       <li>
@@ -157,31 +165,7 @@ function Footer() {
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
-                          <span className="item_text">FAQ</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="contact.html">
-                          <span className="item_icon">
-                            <i className="fas fa-caret-right"></i>
-                          </span>
-                          <span className="item_text">Contacts</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#!">
-                          <span className="item_icon">
-                            <i className="fas fa-caret-right"></i>
-                          </span>
-                          <span className="item_text">Security</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#!">
-                          <span className="item_icon">
-                            <i className="fas fa-caret-right"></i>
-                          </span>
-                          <span className="item_text">Private Police</span>
+                          <span className="item_text">{t("faq")}</span>
                         </a>
                       </li>
                     </ul>
@@ -191,9 +175,38 @@ function Footer() {
             </div>
             <div className="col col-lg-3 col-md-6 col-sm-6">
               <div className="footer_widget">
-                <h3 className="footer_widget_title">Latest Posts</h3>
+                <h3 className="footer_widget_title">{t("latestPosts")}</h3>
                 <ul className="blog_small_group unordered_list_block">
-                  <li>
+                  {news?.map((n, index) => (
+                    <li key={index}>
+                      <a className="blog_small" href="blog_details.html">
+                        <span className="item_image">
+                          <img
+                            src={`https://nfeducationback-z9ad3.ondigitalocean.app${n?.attributes?.image?.data?.attributes?.url}`}
+                            alt="Collab – Online Learning Platform"
+                            style={{
+                              width: "70px",
+                              height: "70px",
+                              objectFit: "cover",
+                            }}
+                          />
+                        </span>
+                        <span className="item_content">
+                          {/* <span className="item_author">
+                            <i className="fas fa-user-alt"></i> by Corabelle
+                            Durrad
+                          </span> */}
+                          <strong className="item_title">
+                            {n?.attributes?.Basliq}
+                          </strong>
+                          <small className="item_post_date">
+                            {n?.attributes?.tarix.slice(0, 10)}
+                          </small>
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                  {/* <li>
                     <a className="blog_small" href="blog_details.html">
                       <span className="item_image">
                         <img
@@ -203,34 +216,18 @@ function Footer() {
                       </span>
                       <span className="item_content">
                         <span className="item_author">
-                          <i className="fas fa-user-alt"></i> by Corabelle Durrad
+                          <i className="fas fa-user-alt"></i> by Corabelle
+                          Durrad
                         </span>
                         <strong className="item_title">
                           See How Michaele Built a New Life and Career
                         </strong>
-                        <small className="item_post_date">October 12, 2023</small>
+                        <small className="item_post_date">
+                          October 12, 2023
+                        </small>
                       </span>
                     </a>
-                  </li>
-                  <li>
-                    <a className="blog_small" href="blog_details.html">
-                      <span className="item_image">
-                        <img
-                          src="/images/blog/blog_small_img_2.jpg"
-                          alt="Collab – Online Learning Platform"
-                        />{" "}
-                      </span>
-                      <span className="item_content">
-                        <span className="item_author">
-                          <i className="fas fa-user-alt"></i> by Corabelle Durrad
-                        </span>
-                        <strong className="item_title">
-                          See How Michaele Built a New Life and Career
-                        </strong>
-                        <small className="item_post_date">October 12, 2023</small>
-                      </span>
-                    </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

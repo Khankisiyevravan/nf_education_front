@@ -10,9 +10,26 @@ import axios from "../api/axios";
 import ScrollTrigger from "react-scroll-trigger";
 import CountUp from "react-countup";
 import { useTranslation } from "react-i18next";
-function Homepage() {
+function Homepage({ lang, setLang }) {
   const { t } = useTranslation(["home"]);
   const [counterOn, setCounterOn] = useState(false);
+  const [news, setNews] = useState([]);
+  // const newsType={
+  //   Televizya:{
+  //     az:
+  //   }
+  // }
+  useEffect(() => {
+    axios
+      .get(`/api/xebers?locale=${lang}&&populate=*`)
+      .then((response) => {
+        console.log(response?.data?.data);
+        setNews(response?.data?.data.slice(0, 6));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [lang]);
   return (
     <>
       <main>
@@ -212,7 +229,10 @@ function Homepage() {
                   </div>
                 </div>
                 <div className="btn_wrap pb-0 d-block d-lg-none text-center">
-                  <a className="btn border_dark" href="course.html">
+                  <a
+                    className="btn border_dark"
+                    href="https://wa.me/994507640009?text=Salam. Nömrənizi nf-edu.com saytından götürmüşəm, suallarımı cavablandıra bilərsiniz?"
+                  >
                     <span>
                       <small>{t("contactWithWhatsapp")}</small>
                       <small>{t("contactWithWhatsapp")}</small>
@@ -308,11 +328,11 @@ function Homepage() {
             <div className="section_heading">
               <div className="row align-items-center justify-content-lg-between">
                 <div className="col col-lg-6">
-                  <h2 className="heading_text mb-0">Xəbərlər</h2>
+                  <h2 className="heading_text mb-0">{t("news")}</h2>
                 </div>
                 <div className="col col-lg-5">
                   <p className="heading_description mb-0 text-lg-end">
-                   {t("slogan1")}
+                    {t("slogan1")}
                   </p>
                 </div>
               </div>
@@ -362,7 +382,8 @@ function Homepage() {
                     role="tab"
                     aria-selected="false"
                   >
-                    <i className="fas fa-lightbulb-on"></i> <span>Ukrayna</span>
+                    <i className="fas fa-lightbulb-on"></i>{" "}
+                    <span>{t("ukraine")}</span>
                   </button>
                 </li>
                 <li role="presentation">
@@ -373,7 +394,8 @@ function Homepage() {
                     role="tab"
                     aria-selected="false"
                   >
-                    <i className="fas fa-palette"></i> <span>Polşa</span>
+                    <i className="fas fa-palette"></i>
+                    <span>{t("poland")}</span>
                   </button>
                 </li>
               </ul>
@@ -384,41 +406,52 @@ function Homepage() {
                   role="tabpanel"
                 >
                   <div className="row">
-                    <div className="col col-lg-4">
-                      <div className="course_card">
-                        <div className="item_image">
-                          <a href="course_details.html" data-cursor-text="View">
-                            <img
-                              src="/images/news/news1.webp"
-                              alt="Collab – Online Learning Platform"
-                            />
-                          </a>
-                        </div>
-                        <div className="item_content">
-                          <div className="d-flex align-items-center justify-content-between mb-3">
-                            <ul className="item_category_list unordered_list">
-                              <li>
-                                <a href="#!">Televiziya</a>
-                              </li>
-                            </ul>
-                          </div>
-                          <h3 className="item_title">
-                            <a href="course_details.html">
-                              ATV televiziyasında "Təhsildə Sən" verilişində
-                              Faiq Nəsrullayev
+                    {news?.map((n, index) => (
+                      <div className="col col-lg-4" key={index}>
+                        <div className="course_card">
+                          <div className="item_image">
+                            <a
+                              href="course_details.html"
+                              data-cursor-text="View"
+                            >
+                              <img
+                                src={`https://nfeducationback-z9ad3.ondigitalocean.app${n?.attributes?.image?.data?.attributes?.url}`}
+                                alt="Collab – Online Learning Platform"
+                              />
                             </a>
-                          </h3>
-                          <a className="btn_unfill" href="course_details.html">
-                            <span className="btn_text">{t("readmore")}</span>
-                            <span className="btn_icon">
-                              <i className="fas fa-long-arrow-right"></i>
-                              <i className="fas fa-long-arrow-right"></i>
-                            </span>
-                          </a>
+                          </div>
+                          <div className="item_content">
+                            <div className="d-flex align-items-center justify-content-between mb-3">
+                              <ul className="item_category_list unordered_list">
+                                <li>
+                                  <a href="#!">
+                                    {t(n?.attributes?.xeber_tipi)}
+                                  </a>
+                                </li>
+                                {/* <li>
+                                  <a href="">20.07.2023</a>
+                                </li> */}
+                              </ul>
+                            </div>
+                            <h3 className="item_title">
+                              <a href="course_details.html">
+                                {n?.attributes.Basliq}
+                              </a>
+                            </h3>
+                            <a
+                              className="btn_unfill"
+                              href="course_details.html"
+                            >
+                              <span className="btn_text">{t("readmore")}</span>
+                              <span className="btn_icon">
+                                <i className="fas fa-long-arrow-right"></i>
+                                <i className="fas fa-long-arrow-right"></i>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    
+                    ))}
                   </div>
                 </div>
               </div>
@@ -945,7 +978,8 @@ function Homepage() {
             <div
               className="newslatter_box"
               style={{
-                backgroundImage: "url(`nf_education_front/images/shape/shape_img_6.svg`)",
+                backgroundImage:
+                  "url(`nf_education_front/images/shape/shape_img_6.svg`)",
               }}
             >
               <div className="row justify-content-center">

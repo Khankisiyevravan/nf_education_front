@@ -10,20 +10,21 @@ i18n
   .init({
     backend: {
       // translation file path
-      loadPath: "assets/i18n/{{ns}}/{{lng}}.json",
+      loadPath: "/assets/i18n/{{ns}}/{{lng}}.json",
     },
+    // resources,
     fallbacklng: "az",
     // disabled in production
-    debug: false,
+    debug: true,
     // can have multiple namespaces, in case you want to divide a huge
     // translation into smaller pieces and load them on demand
-    ns: ["common", "home", "contact"],
+    ns: ["common", "home", "contact","university","about"],
     interpolation: {
       espaceValue: false,
       formatSeparator: ",",
     },
     react: {
-      wait: true,
+      useSuspense: true,
     },
   });
 

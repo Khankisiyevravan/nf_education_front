@@ -57,3 +57,39 @@
 .hero_banner.style_1 .banner_big_title {
   max-width: 90%;
 }
+.main_menu_list > li > a > button {
+  width: 40px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.pagination_nav.unordered_list li.selected a {
+  background-color: #035ab2;
+  color: white;
+}
+@media only screen and (min-width: 500px) {
+  .main_menu_list > li:hover > a:after {
+    transform: rotateX(-180deg) !important;
+  }
+  .dropdown.fff:hover > .dropdown-menu {
+    display: block;
+  }
+  .dropdown.fff > .dropdown-menu > .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+@media only screen and (max-width: 1000px) and (min-width: 500px) {
+  .dropdown.fff > .dropdown-menu {
+    width: 40%;
+  }
+  .dropdown.fff > .dropdown-menu li > .dropdown-menu {
+    position: absolute;
+    width: 150%;
+    left: 100%;
+    overflow: hidden;
+  }
+  .main_menu_list .dropdown-menu {
+    min-width: 150px;
+  }
+}

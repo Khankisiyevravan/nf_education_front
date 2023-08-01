@@ -15,7 +15,7 @@ import NotFound from "./pages/NotFound";
 import News from "./pages/News";
 function App() {
   const location = useLocation();
-  const [lang, setLang] = useState("az");
+  const [lang, setLang] = useState(localStorage.getItem("i18nextLng"));
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
@@ -25,26 +25,29 @@ function App() {
       <Suspense fallback={null}>
         <Header lang={lang} setLang={setLang} />
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/abroadstudy" element={<AbroadStudy />} />
+          <Route
+            path="/"
+            element={<Homepage lang={lang} setLang={setLang} />}
+          />
+          <Route path="/about" element={<About lang={lang} setLang={setLang}/>} />
+          <Route path="/contact" element={<Contact lang={lang} setLang={setLang}/>} />
+          <Route path="/abroadstudy" element={<AbroadStudy lang={lang} setLang={setLang}/>} />
           <Route
             path="/abroadstudy/:country"
             element={<CountryStudy lang={lang} setLang={setLang} />}
           />
           <Route
             path="/abroadstudy/:country/:university"
-            element={<University />}
+            element={<University lang={lang} setLang={setLang}/>}
           />
           <Route
             path="/abroadstudy/:country/:university/:special"
-            element={<Specialty />}
+            element={<Specialty lang={lang} setLang={setLang}/>}
           />
-          <Route path="/news" element={<News />} />
+          <Route path="/news" element={<News lang={lang} setLang={setLang}/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
+        <Footer lang={lang} setLang={setLang} />
       </Suspense>
     </div>
   );

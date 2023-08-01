@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import axios from "../api/axios";
+import ReactPaginate from "react-paginate";
 
-function News() {
+function News({ lang, setLang }) {
+  const { t } = useTranslation(["home"]);
+  const [news, setNews] = useState([]);
+  const [itemOffset, setItemOffset] = useState(0);
+  const itemsPerPage = 10;
+  const endOffset = itemOffset + itemsPerPage;
+  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  const currentItems = news.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(news.length / itemsPerPage);
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % news.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
+  useEffect(() => {
+    axios
+      .get(`/api/xebers?locale=${lang}&&populate=*`)
+      .then((response) => {
+        console.log(response?.data?.data);
+        setNews(response?.data?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [lang]);
   return (
     <>
       <main className="page_content">
@@ -11,7 +40,9 @@ function News() {
               // style="
               //   background-image: url(assetsnf_education_front/images/banner/page_banner_image.png);
               // "
-              style={{backgroundImage:"url('nf_education_front/images/banner/page_banner_image.png')"}}
+              style={{
+                backgroundImage: "url('/images/banner/page_banner_image.png')",
+              }}
             >
               <div class="row align-items-center">
                 <div class="col col-lg-6">
@@ -21,26 +52,8 @@ function News() {
                     </li>
                     <li>Courses</li>
                   </ul>
-                  <h1 class="page_title">Course Grid</h1>
-                  <p class="page_description">
-                    Egestas sed tempus urna et pharetra. Leo integer malesuada
-                    nunc vel. Libero id faucibus nisl tincidunt eget nullam non
-                    nisi. Faucibus turpis in eu mi bibendum neque egestas
-                  </p>
-                  <form action="#">
-                    <div class="form_item mb-0">
-                      <input
-                        type="search"
-                        name="search"
-                        placeholder="What do you want to learn ?"
-                      />
-                      <button type="submit" class="btn btn_dark">
-                        <span>
-                          <small>Search</small> <small>Search</small>
-                        </span>
-                      </button>
-                    </div>
-                  </form>
+                  <h1 class="page_title">{t("news")}</h1>
+                  <p class="page_description">{t("text4")}</p>
                 </div>
               </div>
             </div>
@@ -48,468 +61,56 @@ function News() {
         </section>
         <section class="courses_archive_section section_space_lg">
           <div class="container">
-            <div class="filter_topbar">
-              <p class="filter_result">
-                Showing <span>1-9</span> of <span>30</span> results
-              </p>
-              <ul class="filter_buttons_list unordered_list">
-                <li>
-                  <button type="button" class="offCanvas_open_btn">
-                    <i class="fas fa-filter"></i> <span>Filter</span>
-                  </button>
-                </li>
-                <li>
-                  <div class="form_item m-0">
-                    <select name="sorting">
-                      <option value="sorting" selected="selected">
-                        Sorting
-                      </option>
-                      <option value="newest">Newest</option>
-                      <option value="popularity">Popularity</option>
-                    </select>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div class="row">
-              <div class="col col-lg-4">
-                <div class="course_card">
-                  <div class="item_image">
-                    <a href="course_details.html" data-cursor-text="View">
-                      <img
-                        src="/images/course/course_image_7.jpg"
-                        alt="Collab – Online Learning Platform"
-                      />
-                    </a>
-                  </div>
-                  <div class="item_content">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <ul class="item_category_list unordered_list">
-                        <li>
-                          <a href="#!">marketing</a>
-                        </li>
-                      </ul>
-                      <div class="item_price">
-                        <span class="sale_price">$19.99</span>
-                        <del class="remove_price">$29.99</del>
-                      </div>
-                    </div>
-                    <ul class="meta_info_list unordered_list">
-                      <li>
-                        <i class="fas fa-chart-bar"></i> <span>Beginner</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-clock"></i> <span>120 Hours</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-star"></i>
-                        <span>3.5 (3k reviews)</span>
-                      </li>
-                    </ul>
-                    <h3 class="item_title">
-                      <a href="course_details.html">
-                        Marketing Channel Strategy & B2B2C Routes to Market
+              {news?.map((n, index) => (
+                <div className="col col-lg-4" key={index}>
+                  <div className="course_card">
+                    <div className="item_image">
+                      <a href="course_details.html" data-cursor-text="View">
+                        <img
+                          src={`https://nfeducationback-z9ad3.ondigitalocean.app${n?.attributes?.image?.data?.attributes?.url}`}
+                          alt="Collab – Online Learning Platform"
+                        />
                       </a>
-                    </h3>
-                    <a class="btn_unfill" href="course_details.html">
-                      <span class="btn_text">View Course</span>
-                      <span class="btn_icon">
-                        <i class="fas fa-long-arrow-right"></i>
-                        <i class="fas fa-long-arrow-right"></i>
-                      </span>
-                    </a>
+                    </div>
+                    <div className="item_content">
+                      <div className="d-flex align-items-center justify-content-between mb-3">
+                        <ul className="item_category_list unordered_list">
+                          <li>
+                            <a href="#!">{t(n?.attributes?.xeber_tipi)}</a>
+                          </li>
+                          {/* <li>
+                                  <a href="">20.07.2023</a>
+                                </li> */}
+                        </ul>
+                      </div>
+                      <h3 className="item_title">
+                        <a href="course_details.html">{n?.attributes.Basliq}</a>
+                      </h3>
+                      <a className="btn_unfill" href="course_details.html">
+                        <span className="btn_text">{t("readmore")}</span>
+                        <span className="btn_icon">
+                          <i className="fas fa-long-arrow-right"></i>
+                          <i className="fas fa-long-arrow-right"></i>
+                        </span>
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col col-lg-4">
-                <div class="course_card">
-                  <div class="item_image">
-                    <a href="course_details.html" data-cursor-text="View">
-                      <img
-                        src="/images/course/course_image_6.jpg"
-                        alt="Collab – Online Learning Platform"
-                      />
-                    </a>
-                  </div>
-                  <div class="item_content">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <ul class="item_category_list unordered_list">
-                        <li>
-                          <a href="#!">Programming</a>
-                        </li>
-                      </ul>
-                      <div class="item_price">
-                        <span class="sale_price">$14.99</span>
-                      </div>
-                    </div>
-                    <ul class="meta_info_list unordered_list">
-                      <li>
-                        <i class="fas fa-chart-bar"></i> <span>Beginner</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-clock"></i> <span>120 Hours</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-star"></i>
-                        <span>3.5 (3k reviews)</span>
-                      </li>
-                    </ul>
-                    <h3 class="item_title">
-                      <a href="course_details.html">
-                        Programming Foundations with JavaScript, HTML and CSS
-                      </a>
-                    </h3>
-                    <a class="btn_unfill" href="course_details.html">
-                      <span class="btn_text">View Course</span>
-                      <span class="btn_icon">
-                        <i class="fas fa-long-arrow-right"></i>
-                        <i class="fas fa-long-arrow-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-lg-4">
-                <div class="course_card">
-                  <div class="item_image">
-                    <a href="course_details.html" data-cursor-text="View">
-                      <img
-                        src="/images/course/course_image_12.jpg"
-                        alt="Collab – Online Learning Platform"
-                      />
-                    </a>
-                  </div>
-                  <div class="item_content">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <ul class="item_category_list unordered_list">
-                        <li>
-                          <a href="#!">Programming</a>
-                        </li>
-                      </ul>
-                      <div class="item_price">
-                        <span class="sale_price">$15.69</span>
-                      </div>
-                    </div>
-                    <ul class="meta_info_list unordered_list">
-                      <li>
-                        <i class="fas fa-chart-bar"></i> <span>Beginner</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-clock"></i> <span>120 Hours</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-star"></i>
-                        <span>3.5 (3k reviews)</span>
-                      </li>
-                    </ul>
-                    <h3 class="item_title">
-                      <a href="course_details.html">
-                        Introduction to Computer Science and Programming
-                      </a>
-                    </h3>
-                    <a class="btn_unfill" href="course_details.html">
-                      <span class="btn_text">View Course</span>
-                      <span class="btn_icon">
-                        <i class="fas fa-long-arrow-right"></i>
-                        <i class="fas fa-long-arrow-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-lg-4">
-                <div class="course_card">
-                  <div class="item_image">
-                    <a href="course_details.html" data-cursor-text="View">
-                      <img
-                        src="/images/course/course_image_13.jpg"
-                        alt="Collab – Online Learning Platform"
-                      />
-                    </a>
-                  </div>
-                  <div class="item_content">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <ul class="item_category_list unordered_list">
-                        <li>
-                          <a href="#!">bissines</a>
-                        </li>
-                      </ul>
-                      <div class="item_price">
-                        <span class="sale_price">$29.99</span>
-                      </div>
-                    </div>
-                    <ul class="meta_info_list unordered_list">
-                      <li>
-                        <i class="fas fa-chart-bar"></i> <span>Beginner</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-clock"></i> <span>120 Hours</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-star"></i>
-                        <span>3.5 (3k reviews)</span>
-                      </li>
-                    </ul>
-                    <h3 class="item_title">
-                      <a href="course_details.html">
-                        Project Management Principles and Practices
-                      </a>
-                    </h3>
-                    <a class="btn_unfill" href="course_details.html">
-                      <span class="btn_text">View Course</span>
-                      <span class="btn_icon">
-                        <i class="fas fa-long-arrow-right"></i>
-                        <i class="fas fa-long-arrow-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-lg-4">
-                <div class="course_card">
-                  <div class="item_image">
-                    <a href="course_details.html" data-cursor-text="View">
-                      <img
-                        src="/images/course/course_image_8.jpg"
-                        alt="Collab – Online Learning Platform"
-                      />
-                    </a>
-                  </div>
-                  <div class="item_content">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <ul class="item_category_list unordered_list">
-                        <li>
-                          <a href="#!">programming</a>
-                        </li>
-                      </ul>
-                      <div class="item_price">
-                        <span class="sale_price">$12.99</span>
-                        <del class="remove_price">$19.99</del>
-                      </div>
-                    </div>
-                    <ul class="meta_info_list unordered_list">
-                      <li>
-                        <i class="fas fa-chart-bar"></i> <span>Beginner</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-clock"></i> <span>120 Hours</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-star"></i>
-                        <span>3.5 (3k reviews)</span>
-                      </li>
-                    </ul>
-                    <h3 class="item_title">
-                      <a href="course_details.html">
-                        Java Programming: Principles of Software Design
-                      </a>
-                    </h3>
-                    <a class="btn_unfill" href="course_details.html">
-                      <span class="btn_text">View Course</span>
-                      <span class="btn_icon">
-                        <i class="fas fa-long-arrow-right"></i>
-                        <i class="fas fa-long-arrow-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-lg-4">
-                <div class="course_card">
-                  <div class="item_image">
-                    <a href="course_details.html" data-cursor-text="View">
-                      <img
-                        src="/images/course/course_image_9.jpg"
-                        alt="Collab – Online Learning Platform"
-                      />
-                    </a>
-                  </div>
-                  <div class="item_content">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <ul class="item_category_list unordered_list">
-                        <li>
-                          <a href="#!">Design</a>
-                        </li>
-                      </ul>
-                      <div class="item_price">
-                        <span class="sale_price">FREE</span>
-                      </div>
-                    </div>
-                    <ul class="meta_info_list unordered_list">
-                      <li>
-                        <i class="fas fa-chart-bar"></i> <span>Beginner</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-clock"></i> <span>120 Hours</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-star"></i>
-                        <span>3.5 (3k reviews)</span>
-                      </li>
-                    </ul>
-                    <h3 class="item_title">
-                      <a href="course_details.html">
-                        Foundations of User Experience (UX) Design
-                      </a>
-                    </h3>
-                    <a class="btn_unfill" href="course_details.html">
-                      <span class="btn_text">View Course</span>
-                      <span class="btn_icon">
-                        <i class="fas fa-long-arrow-right"></i>
-                        <i class="fas fa-long-arrow-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-lg-4">
-                <div class="course_card">
-                  <div class="item_image">
-                    <a href="course_details.html" data-cursor-text="View">
-                      <img
-                        src="/images/course/course_image_14.jpg"
-                        alt="Collab – Online Learning Platform"
-                      />
-                    </a>
-                  </div>
-                  <div class="item_content">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <ul class="item_category_list unordered_list">
-                        <li>
-                          <a href="#!">Computer Science</a>
-                        </li>
-                      </ul>
-                      <div class="item_price">
-                        <span class="sale_price">$19.99</span>
-                        <del class="remove_price">$29.99</del>
-                      </div>
-                    </div>
-                    <ul class="meta_info_list unordered_list">
-                      <li>
-                        <i class="fas fa-chart-bar"></i> <span>Beginner</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-clock"></i> <span>120 Hours</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-star"></i>
-                        <span>3.5 (3k reviews)</span>
-                      </li>
-                    </ul>
-                    <h3 class="item_title">
-                      <a href="course_details.html">
-                        Strategy and Information Architecture
-                      </a>
-                    </h3>
-                    <a class="btn_unfill" href="course_details.html">
-                      <span class="btn_text">View Course</span>
-                      <span class="btn_icon">
-                        <i class="fas fa-long-arrow-right"></i>
-                        <i class="fas fa-long-arrow-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-lg-4">
-                <div class="course_card">
-                  <div class="item_image">
-                    <a href="course_details.html" data-cursor-text="View">
-                      <img
-                        src="/images/course/course_image_10.jpg"
-                        alt="Collab – Online Learning Platform"
-                      />
-                    </a>
-                  </div>
-                  <div class="item_content">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <ul class="item_category_list unordered_list">
-                        <li>
-                          <a href="#!">design</a>
-                        </li>
-                      </ul>
-                      <div class="item_price">
-                        <span class="sale_price">$29.99</span>
-                      </div>
-                    </div>
-                    <ul class="meta_info_list unordered_list">
-                      <li>
-                        <i class="fas fa-chart-bar"></i> <span>Beginner</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-clock"></i> <span>120 Hours</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-star"></i>
-                        <span>3.5 (3k reviews)</span>
-                      </li>
-                    </ul>
-                    <h3 class="item_title">
-                      <a href="course_details.html">
-                        Create a Process Map using a Canva Template
-                      </a>
-                    </h3>
-                    <a class="btn_unfill" href="course_details.html">
-                      <span class="btn_text">View Course</span>
-                      <span class="btn_icon">
-                        <i class="fas fa-long-arrow-right"></i>
-                        <i class="fas fa-long-arrow-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col col-lg-4">
-                <div class="course_card">
-                  <div class="item_image">
-                    <a href="course_details.html" data-cursor-text="View">
-                      <img
-                        src="/images/course/course_image_11.jpg"
-                        alt="Collab – Online Learning Platform"
-                      />
-                    </a>
-                  </div>
-                  <div class="item_content">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <ul class="item_category_list unordered_list">
-                        <li>
-                          <a href="#!">Computer Science</a>
-                        </li>
-                      </ul>
-                      <div class="item_price">
-                        <span class="sale_price">FREE</span>
-                      </div>
-                    </div>
-                    <ul class="meta_info_list unordered_list">
-                      <li>
-                        <i class="fas fa-chart-bar"></i> <span>Beginner</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-clock"></i> <span>120 Hours</span>
-                      </li>
-                      <li>
-                        <i class="fas fa-star"></i>
-                        <span>3.5 (3k reviews)</span>
-                      </li>
-                    </ul>
-                    <h3 class="item_title">
-                      <a href="course_details.html">
-                        Software Engineering Fundamentals
-                      </a>
-                    </h3>
-                    <a class="btn_unfill" href="course_details.html">
-                      <span class="btn_text">View Course</span>
-                      <span class="btn_icon">
-                        <i class="fas fa-long-arrow-right"></i>
-                        <i class="fas fa-long-arrow-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
             <div class="pagination_wrap">
-              <ul class="pagination_nav unordered_list">
+              <ReactPaginate
+                breakLabel="..."
+                nextLabel=">"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={5}
+                pageCount={pageCount}
+                previousLabel="<"
+                renderOnZeroPageCount={null}
+                className="pagination_nav unordered_list"
+              />
+              {/* <ul class="pagination_nav unordered_list">
                 <li>
                   <a href="#!">
                     <i class="fas fa-long-arrow-left"></i>
@@ -535,7 +136,7 @@ function News() {
                     <i class="fas fa-long-arrow-right"></i>
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </section>
