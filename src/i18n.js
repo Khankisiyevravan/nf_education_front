@@ -18,7 +18,8 @@ i18n
     //   "zh-CN": ["cn"],
     //   default: ["az"],
     // },
-    fallBackLng: ["az"],
+    fallbackLng:["az"],
+    // fallBackLng: ["az"],
     fallbacklng: "az",
     // disabled in production
     debug: true,
