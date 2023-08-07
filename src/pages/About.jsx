@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
+import { Link } from "react-router-dom";
+import Discount from "../components/Discount";
 function About() {
   const { t } = useTranslation(["about"]);
   const [counterOn, setCounterOn] = useState(false);
@@ -17,18 +19,16 @@ function About() {
             //   "
             style={{
               backgroundImage: "url(/images/banner/page_banner_image.png)",
+              padding:"70px 25px 150px 25px"
             }}
           >
             <div class="row align-items-center">
               <div class="col col-lg-6">
                 <ul class="breadcrumb_nav unordered_list">
                   <li>
-                    <a href="index.html">Home</a>
+                    <Link to="/">{t("home")}</Link>
                   </li>
-                  <li>
-                    <a href="#!">Pages</a>
-                  </li>
-                  <li>About Us</li>
+                  <li>{t("university")}</li>
                 </ul>
                 <h1 class="page_title">{t("ourAbout")}</h1>
                 <p class="page_description">{t("text1")}</p>
@@ -83,12 +83,12 @@ function About() {
                   </li>
                 </ul>
                 <div className="btn_wrap pb-0">
-                  <a className="btn btn_dark" href="mentor.html">
+                  <Link className="btn btn_dark" to="/abroadstudy">
                     <span>
                       <small>{t("university")}</small>
                       <small>{t("university")}</small>
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -268,7 +268,7 @@ function About() {
                   <a
                     class="btn btn_dark"
                     target="_blank"
-                    href="https://wa.me/994507640009?text=Salam. Nömrənizi nf-edu.com saytından götürmüşəm, suallarımı cavablandıra bilərsiniz?"
+                    href="https://wa.me/380634508613?text=Salam. Nömrənizi nf-edu.com saytından götürmüşəm, suallarımı cavablandıra bilərsiniz?"
                   >
                     <span>
                       <small>{t("contactWithWhatsapp")}</small>
@@ -281,7 +281,7 @@ function About() {
           </div>
         </div>
       </section>
-      <section class="popular_event_section section_space_lg bg_dark decoration_wrap">
+      {/* <section class="popular_event_section section_space_lg bg_dark decoration_wrap">
         <div class="container">
           <div class="row align-items-center">
             <div class="col col-lg-7">
@@ -401,15 +401,15 @@ function About() {
           class="deco_item shape_img_3"
           data-parallax='{"y" : -130, "smoothness": 6}'
         >
-          {/* <img
+           <img
             src="/images/shape/shape_img_3.png"
             alt="Collab – Online Learning Platform"
-          /> */}
+          /> 
         </div>
-      </section>
-      <section class="faq_section section_space_lg">
+      </section> */}
+      {/* <section class="faq_section section_space_lg">
         <div class="container">
-          {/* <div class="section_heading text-center mb-3">
+          <div class="section_heading text-center mb-3">
             <div class="row justify-content-center">
               <div class="col col-lg-7">
                 <h2 class="heading_text mb-0">
@@ -563,9 +563,10 @@ function About() {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
-      </section>
+      </section> */}
+      <Discount/>
     </main>
   );
 }

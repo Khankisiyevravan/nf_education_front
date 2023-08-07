@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "../api/axios";
 import ReactPaginate from "react-paginate";
+import { Link } from "react-router-dom";
 
 function News({ lang, setLang }) {
   const { t } = useTranslation(["home"]);
@@ -48,9 +49,9 @@ function News({ lang, setLang }) {
                 <div class="col col-lg-6">
                   <ul class="breadcrumb_nav unordered_list">
                     <li>
-                      <a href="index.html">Home</a>
+                      <Link to="/">{t("home")}</Link>
                     </li>
-                    <li>Courses</li>
+                    <li>{t("news")}</li>
                   </ul>
                   <h1 class="page_title">{t("news")}</h1>
                   <p class="page_description">{t("text4")}</p>
@@ -66,12 +67,12 @@ function News({ lang, setLang }) {
                 <div className="col col-lg-4" key={index}>
                   <div className="course_card">
                     <div className="item_image">
-                      <a href="course_details.html" data-cursor-text="View">
+                      <Link to={`/news/${n?.id}`} data-cursor-text="View">
                         <img
                           src={`https://nfeducationback-z9ad3.ondigitalocean.app${n?.attributes?.image?.data?.attributes?.url}`}
                           alt="Collab – Online Learning Platform"
                         />
-                      </a>
+                      </Link>
                     </div>
                     <div className="item_content">
                       <div className="d-flex align-items-center justify-content-between mb-3">

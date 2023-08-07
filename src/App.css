@@ -19,7 +19,7 @@
   text-align: center;
 }
 
-.advertisement_section.bg_dark,
+/* .advertisement_section.bg_dark, */
 .pricing_section.section_space_lg.bg_light {
   overflow: hidden;
 }
@@ -68,6 +68,14 @@
   background-color: #035ab2;
   color: white;
 }
+.news_page .page_banner .content_wrapper {
+  min-height: 270px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  opacity: 0;
+  visibility: hidden;
+}
 @media only screen and (min-width: 500px) {
   .main_menu_list > li:hover > a:after {
     transform: rotateX(-180deg) !important;
@@ -92,4 +100,90 @@
   .main_menu_list .dropdown-menu {
     min-width: 150px;
   }
+}
+section.nf-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #e3f2fd41;
+  z-index: 222222;
+}
+.nf-modal button {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  padding: 14px 22px;
+  border: none;
+  background: #4070f4;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.nf-modal button:hover {
+  background-color: #265df2;
+}
+.nf-modal button.show-modal,
+.nf-modal .modal-box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+section.nf-modal.active .show-modal {
+  display: none;
+}
+.nf-modal .overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+}
+section.nf-modal.active .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.nf-modal .modal-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 380px;
+  width: 100%;
+  padding: 30px 20px;
+  border-radius: 24px;
+  background-color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+section.nf-modal.active .modal-box {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.nf-modal .modal-box i {
+  font-size: 70px;
+  color: #4070f4;
+}
+.nf-modal .modal-box h2 {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.nf-modal .modal-box h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+}
+.nf-modal .modal-box .buttons {
+  margin-top: 25px;
+}
+.nf-modal .modal-box button {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 10px;
 }

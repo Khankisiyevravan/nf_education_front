@@ -18,7 +18,7 @@ function Header({ lang, setLang }) {
   const openDropdown = (e) => {
     // e.target.classList.toggle("show");
     // console.log();
-    console.log("header work")
+    console.log("header work");
     if ([...e.target.classList].some((a) => a === "btn-drop")) {
       e.target
         ?.closest(".dropdown")
@@ -42,7 +42,7 @@ function Header({ lang, setLang }) {
     });
   }, []);
   useEffect(() => {
-    console.log(lang);
+    // console.log(lang);
     if (lang.length > 2) {
       axios
         .get(`/api/countries?locale=az&&populate=*`)
@@ -58,8 +58,6 @@ function Header({ lang, setLang }) {
       axios
         .get(`/api/countries?locale=${lang}&&populate=*`)
         .then((response) => {
-          console.log(lang);
-          console.log(response);
           setCountries(response?.data?.data);
         })
         .catch((err) => {
@@ -69,13 +67,14 @@ function Header({ lang, setLang }) {
   }, [lang]);
   useEffect(() => {
     [...document.querySelectorAll(".dropdown-menu")].map((a) => {
-      console.log(a);
+      // console.log(a);
       a.classList.remove("show");
       setNavbarShow(false);
     });
     document
       ?.querySelector(".mobile_menu_btn")
       ?.setAttribute("aria-expanded", "false");
+    console.log(location);
   }, [location]);
   return (
     <header className="site_header site_header_1" ref={headerRef}>
@@ -100,7 +99,13 @@ function Header({ lang, setLang }) {
                 id="main_menu_dropdown"
               >
                 <ul className="main_menu_list unordered_list_center">
-                  <li className="dropdown active none">
+                  <li
+                    className={
+                      location.pathname === "/"
+                        ? "dropdown active none"
+                        : "dropdown none"
+                    }
+                  >
                     <Link
                       to="/"
                       className="nav-link"
@@ -113,7 +118,12 @@ function Header({ lang, setLang }) {
                     </Link>
                   </li>
                   <li
-                    className="dropdown fff"
+                    className={
+                      location.pathname.includes("/abroadstudy")
+                        ? "dropdown active fff"
+                        : "dropdown fff"
+                    }
+                    // className="dropdown fff"
                     // onMouseMove={(e) =>
                     //   e.target
                     //     ?.closest(".dropdown")
@@ -141,7 +151,7 @@ function Header({ lang, setLang }) {
                           e.preventDefault();
                         }
                       }}
-                      to="/abroadstudy"
+                      // to="/abroadstudy"
                       className="nav-link"
                       id="service_submenu"
                       role="button"
@@ -211,22 +221,22 @@ function Header({ lang, setLang }) {
                       ))}
                     </ul>
                   </li>
-                  <li>
+                  <li className={location.pathname === "/news" ? "active" : ""}>
                     <Link to="/news" className="nav-link">
                       {t("news")}
                     </Link>
                   </li>
-                  <li>
+                  <li className={location.pathname === "/contact" ? "active" : ""}>
                     <Link to="/contact" className="nav-link">
                       {t("contact")}
                     </Link>
                   </li>
-                  <li>
+                  <li className={location.pathname === "/about" ? "active" : ""}>
                     <Link to="/about" className="nav-link">
                       {t("about")}
                     </Link>
                   </li>
-                  <li>
+                  <li className={location.pathname === "/faq" ? "active" : ""}>
                     <Link to="/faq" className="nav-link">
                       {t("faq")}
                     </Link>

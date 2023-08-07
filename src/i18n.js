@@ -18,14 +18,23 @@ i18n
     //   "zh-CN": ["cn"],
     //   default: ["az"],
     // },
-    fallbackLng:["az"],
+    fallbackLng: ["az"],
     // fallBackLng: ["az"],
     fallbacklng: "az",
     // disabled in production
-    debug: true,
+    debug: false,
     // can have multiple namespaces, in case you want to divide a huge
     // translation into smaller pieces and load them on demand
-    ns: ["common", "home", "contact", "university", "about"],
+    ns: [
+      "common",
+      "home",
+      "contact",
+      "university",
+      "about",
+      "news",
+      "consultation",
+      "modal"
+    ],
     interpolation: {
       espaceValue: false,
       formatSeparator: ",",

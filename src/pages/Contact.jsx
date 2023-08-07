@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import axios from "../api/axios";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import Modal from "../components/Modal";
 function Contact() {
   const { t } = useTranslation(["contact"]);
+  const [modalShow, setModalShow] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
   const [contactData, setContactData] = useState({
     full_name: "",
     email: "",
@@ -16,10 +20,6 @@ function Contact() {
   };
   const sendData = (e) => {
     e.preventDefault();
-
-    const config = {
-      headers: { "Content-type": "application/json" },
-    };
     console.log(contactData);
     axios
       .post("/api/elaqelers", {
@@ -27,31 +27,45 @@ function Contact() {
       })
       .then((response) => {
         console.log(response);
+        setModalShow(true);
+        setModalMessage("success");
       })
       .catch((err) => {
         console.log(err);
+        setModalShow(true);
+        setModalMessage("error");
       });
   };
-  useEffect(() => {
-    axios
-      .get("/api/elaqelers")
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("/api/elaqelers")
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
   return (
     <>
+      {modalShow ? (
+        <Modal
+          modalShow={modalShow}
+          setModalShow={setModalShow}
+          setModalMessage={setModalMessage}
+          modalMessage={modalMessage}
+        />
+      ) : (
+        ""
+      )}
       <main className="page_content">
         <section className="page_banner">
           <div className="container">
             <div
               className="content_wrapper"
               style={{
-                backgroundImage:
-                  "url(/images/banner/page_banner_image.png)",
+                backgroundImage: "url(/images/banner/page_banner_image.png)",
+                padding: "70px 25px 150px 25px",
               }}
               //   style="
               //     background-image: url(/images/banner/page_banner_image.png);
@@ -61,12 +75,12 @@ function Contact() {
                 <div className="col col-lg-6">
                   <ul className="breadcrumb_nav unordered_list">
                     <li>
-                      <a href="index.html">Home</a>
+                      <Link to="/">{t("home:home")}</Link>
                     </li>
-                    <li>Contact Us</li>
+                    <li>{t("home:contact")}</li>
                   </ul>
-                  <h1 className="page_title">{t("title1")}</h1>
-                  <p className="page_description">{t("text1")}</p>
+                  <h1 className="page_title">{t("contact:title1")}</h1>
+                  <p className="page_description">{t("contact:text1")}</p>
                 </div>
               </div>
             </div>
@@ -78,7 +92,7 @@ function Contact() {
               <div className="col col-lg-5">
                 <div className="pe-lg-5">
                   <div className="section_heading">
-                    <h2 className="heading_text">{t("contactInfo")}</h2>
+                    <h2 className="heading_text">{t("contact:contactInfo")}</h2>
                     {/* <p className="heading_description mb-0">
                       Viverra maecenas accumsan lacus vel facilisis volutpat.
                       Faucibus purus in massa tempor nec feugiat nisl
@@ -89,7 +103,7 @@ function Contact() {
                       <i className="fas fa-phone"></i>
                     </div>
                     <div className="item_content">
-                      <h3 className="item_title">{t("callUs")}</h3>
+                      <h3 className="item_title">{t("contact:callUs")}</h3>
                       <p className="mb-0"> (+380) 63 450 86 13</p>
                       <p className="mb-0"> (+994) 77 325 93 04</p>
                     </div>
@@ -99,7 +113,9 @@ function Contact() {
                       <i className="fas fa-envelope"></i>
                     </div>
                     <div className="item_content">
-                      <h3 className="item_title">{t("emailAddress")}</h3>
+                      <h3 className="item_title">
+                        {t("contact:emailAddress")}
+                      </h3>
                       <p className="mb-0">nnfeducation@gmail.com</p>
                       <p className="mb-0">nfeducation@gmail.com</p>
                     </div>
@@ -109,7 +125,7 @@ function Contact() {
                       <i className="fas fa-location-dot"></i>
                     </div>
                     <div className="item_content">
-                      <h3 className="item_title">{t("location")}</h3>
+                      <h3 className="item_title">{t("contact:location")}</h3>
                       <p className="mb-0">Nizami</p>
                       <p className="mb-0">Caspian Plaza</p>
                     </div>
@@ -132,7 +148,7 @@ function Contact() {
             <div className="row justify-content-center">
               <div className="col col-lg-7">
                 <div className="section_heading text-center">
-                  <h2 className="heading_text mb-0">{t("title2")}</h2>
+                  <h2 className="heading_text mb-0">{t("contact:title2")}</h2>
                 </div>
               </div>
             </div>
@@ -143,7 +159,7 @@ function Contact() {
                     <div className="col col-md-6">
                       <div className="form_item m-0">
                         <label htmlFor="input_name" className="input_title">
-                          {t("full_name")}
+                          {t("contact:full_name")}
                         </label>
                         <input
                           id="input_name"
@@ -157,7 +173,7 @@ function Contact() {
                     <div className="col col-md-6">
                       <div className="form_item m-0">
                         <label htmlFor="input_email" className="input_title">
-                          {t("email")}
+                          {t("contact:email")}
                         </label>
                         <input
                           id="input_email"
@@ -171,7 +187,7 @@ function Contact() {
                     <div className="col col-md-6">
                       <div className="form_item m-0">
                         <label htmlFor="input_phone" className="input_title">
-                          {t("phoneNumber")}
+                          {t("contact:phoneNumber")}
                         </label>
                         <input
                           id="input_phone"
@@ -185,7 +201,7 @@ function Contact() {
                     <div className="col col-md-6">
                       <div className="form_item m-0">
                         <label htmlFor="input_jubject" className="input_title">
-                          {t("subject")}
+                          {t("contact:subject")}
                         </label>
                         <select
                           name="title"
@@ -194,33 +210,35 @@ function Contact() {
                           defaultValue={"title"}
                         >
                           <option value="title" selected={"selected"}>
-                            {t("choose")}
+                            {t("contact:choose")}
                           </option>
                           <option value="Xaricde Tehsil">
-                            {t("abroadStudy")}
+                            {t("contact:abroadStudy")}
                           </option>
                           <option value="Ukraynada Tehsil">
-                            {t("ukraine")}
+                            {t("contact:ukraine")}
                           </option>
                           <option value="Turkiyede Tehsil">
-                            {t("turkey")}
+                            {t("contact:turkey")}
                           </option>
                           <option value="Almaniyada Tehsil">
-                            {t("germany")}
+                            {t("contact:germany")}
                           </option>
-                          <option value="Polsada Tehsil">{t("poland")}</option>
+                          <option value="Polsada Tehsil">
+                            {t("contact:poland")}
+                          </option>
                         </select>
                       </div>
                     </div>
                     <div className="col">
                       <div className="form_item">
                         <label htmlFor="input_message" className="input_title">
-                          {t("message")}
+                          {t("contact:message")}
                         </label>
                         <textarea
                           id="input_message"
                           name="messagee"
-                          placeholder={t("writeAboutYourSubject")}
+                          placeholder={t("contact:writeAboutYourSubject")}
                           onChange={handleChange}
                         ></textarea>
                       </div>
@@ -229,8 +247,8 @@ function Contact() {
                         onClick={sendData}
                       >
                         <span>
-                          <small>{t("btn")}</small>
-                          <small>{t("btn")}</small>
+                          <small>{t("contact:btn")}</small>
+                          <small>{t("contact:btn")}</small>
                         </span>
                       </button>
                     </div>

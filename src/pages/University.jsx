@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "../api/axios";
 import { useTranslation } from "react-i18next";
+import Discount from "../components/Discount";
 
 function University({ lang, setLang }) {
   let { country } = useParams();
@@ -429,6 +430,7 @@ function University({ lang, setLang }) {
             </div>
           </div>
         </section>
+        <Discount />
       </main>
     </>
   );

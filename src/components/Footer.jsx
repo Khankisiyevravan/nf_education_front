@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "../api/axios";
+import { Link } from "react-router-dom";
 
 function Footer({ lang, setLang }) {
   let { t } = useTranslation(["common"]);
-  console.log(t("news"));
+  // console.log(t("news"));
   const [news, setNews] = useState([]);
+  const [countries, setCountries] = useState([]);
   useEffect(() => {
     axios
       .get(`/api/xebers?locale=${lang}&&populate=*`)
       .then((response) => {
-        console.log(response?.data?.data);
         setNews(response?.data?.data.slice(0, 2));
       })
       .catch((err) => {
         console.log(err);
       });
+    axios
+      .get(`/api/countries?locale=${lang}`)
+      .then((response) => {
+        console.log(response?.data?.data);
+        setCountries(response?.data?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [lang]);
-  // useEffect(() => {
-  //   t = useTranslation(["common"]);
-  // }, []);
   return (
     <footer className="site_footer">
       <div className="footer_widget_area">
@@ -28,32 +35,41 @@ function Footer({ lang, setLang }) {
             <div className="col col-lg-3 col-md-6 col-sm-6">
               <div className="footer_widget">
                 <div className="site_logo">
-                  <a className="site_link" href="index.html">
+                  <Link to="/" className="site_link">
                     <img
                       src="/images/logo/logo.jpg"
                       alt="Collab - Online Learning Platform"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <p>{t("footerSlogan")}</p>
                 <ul className="social_links unordered_list">
                   <li>
-                    <a href="#!">
+                    <a
+                      href="https://wa.me/380634508613?text=Salam. Nömrənizi nf-edu.com saytından götürmüşəm, suallarımı cavablandıra bilərsiniz?"
+                      target="_blank"
+                    >
+                      <i className="fab fa-whatsapp"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/nf_education_/"
+                      target="_blank"
+                    >
+                      <i className="fab fa-instagram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/ukrainadatehsiil.az/"
+                      target="_blank"
+                    >
                       <i className="fab fa-facebook-f"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#!">
-                      <i className="fab fa-youtube"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#!">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#!">
+                    <a href="https://www.linkedin.com/" target="_blank">
                       <i className="fab fa-linkedin-in"></i>
                     </a>
                   </li>
@@ -67,28 +83,28 @@ function Footer({ lang, setLang }) {
                     <h3 className="footer_widget_title">{t("links")}</h3>
                     <ul className="page_list unordered_list_block">
                       <li>
-                        <a href="about.html">
+                        <Link to="/contact">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
                           <span className="item_text">{t("about")}</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="course.html">
+                        <Link to="/abroadstudy">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
                           <span className="item_text">{t("universities")}</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="mentor.html">
+                        <Link to="/news">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
                           <span className="item_text">{t("news")}</span>
-                        </a>
+                        </Link>
                       </li>
                       {/* <li>
                         <a href="pricing.html">
@@ -113,15 +129,19 @@ function Footer({ lang, setLang }) {
                   <div className="footer_widget">
                     <h3 className="footer_widget_title">{t("abroadstudy")}</h3>
                     <ul className="page_list unordered_list_block">
-                      <li>
-                        <a href="#!">
-                          <span className="item_icon">
-                            <i className="fas fa-caret-right"></i>
-                          </span>
-                          <span className="item_text">{t("ukraine")}</span>
-                        </a>
-                      </li>
-                      <li>
+                      {countries?.map((country, index) => (
+                        <li key={index}>
+                          <Link to={`/abroadstudy/${country?.id}`}>
+                            <span className="item_icon">
+                              <i className="fas fa-caret-right"></i>
+                            </span>
+                            <span className="item_text">
+                              {country?.attributes?.title}
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                      {/* <li>
                         <a href="#!">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
@@ -144,7 +164,7 @@ function Footer({ lang, setLang }) {
                           </span>
                           <span className="item_text">{t("poland")}</span>
                         </a>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                 </div>
@@ -153,20 +173,28 @@ function Footer({ lang, setLang }) {
                     <h3 className="footer_widget_title">{t("support")}</h3>
                     <ul className="page_list unordered_list_block">
                       <li>
-                        <a href="contact.html">
+                        <Link to="/contact">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
                           <span className="item_text">{t("contact")}</span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="faq.html">
+                        <Link to="/consultation">
+                          <span className="item_icon">
+                            <i className="fas fa-caret-right"></i>
+                          </span>
+                          <span className="item_text">{t("consultation")}</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/faq">
                           <span className="item_icon">
                             <i className="fas fa-caret-right"></i>
                           </span>
                           <span className="item_text">{t("faq")}</span>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -179,7 +207,7 @@ function Footer({ lang, setLang }) {
                 <ul className="blog_small_group unordered_list_block">
                   {news?.map((n, index) => (
                     <li key={index}>
-                      <a className="blog_small" href="blog_details.html">
+                      <Link className="blog_small" to={`/news/${n?.id}`}>
                         <span className="item_image">
                           <img
                             src={`https://nfeducationback-z9ad3.ondigitalocean.app${n?.attributes?.image?.data?.attributes?.url}`}
@@ -203,7 +231,7 @@ function Footer({ lang, setLang }) {
                             {n?.attributes?.tarix.slice(0, 10)}
                           </small>
                         </span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                   {/* <li>
@@ -237,8 +265,7 @@ function Footer({ lang, setLang }) {
       <div className="copyright_widget">
         <div className="container">
           <p className="copyright_text text-center mb-0">
-            <a href="https://themeforest.net/user/merkulove">Merkulove</a> ©
-            <b>Collab</b> Template All rights reserved Copyrights 2023
+            <a>NF Education</a> ©<b></b> reserved Copyrights 2023
           </p>
         </div>
       </div>

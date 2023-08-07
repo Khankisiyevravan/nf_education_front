@@ -494,7 +494,8 @@ ol[type="1"] > li:not(:last-child) {
   overflow: hidden;
   border-radius: 8px;
 }
-.item_category_list a {
+.item_category_list a,
+.item_category_list .news-type {
   display: block;
   font-size: 13px;
   font-weight: 600;
@@ -23697,7 +23698,11 @@ a {
 a:active,
 a:focus,
 a:hover,
-a:visited {
+a:visited,
+.news-type:active,
+.news-type:focus,
+.news-type:hover,
+.news-type:visited {
   outline: 0;
   text-decoration: none;
 }
@@ -24124,7 +24129,8 @@ ol[type="1"] > li:not(:last-child) {
   overflow: hidden;
   border-radius: 8px;
 }
-.item_category_list a {
+.item_category_list a,
+.item_category_list .news-type {
   display: block;
   font-size: 13px;
   font-weight: 600;
@@ -24135,7 +24141,8 @@ ol[type="1"] > li:not(:last-child) {
   font-family: Barlow, sans-serif;
   background-color: #f6f6f6;
 }
-.item_category_list a:hover {
+.item_category_list a:hover,
+.item_category_list .news-type:hover {
   background-color: #ffd32b;
 }
 .meta_info_list {
@@ -26333,7 +26340,8 @@ blockquote p {
 .header_btns_group .btn span small {
   padding: 6px 0;
 }
-.site_header_1 + main {
+.site_header_1 + main,
+.site_header_1 + section + main {
   padding-top: 90px;
 }
 .site_header_2 .container {
@@ -27090,6 +27098,7 @@ blockquote p {
     padding: 40px;
   }
 }
+
 @media screen and (max-width: 991px) {
   .header_btns_group > li:first-child {
     display: inline-block;
@@ -27107,7 +27116,7 @@ blockquote p {
   .main_menu {
     left: 0;
     right: 0;
-    top: 129px;
+    top: 90px;
     z-index: 999;
     position: fixed;
   }
@@ -27115,7 +27124,7 @@ blockquote p {
     background-color: #fff;
   }
   .site_header.sticky .main_menu {
-    top: 61px;
+    top: 100px;
   }
   .main_menu_inner {
     background-color: #fff;
@@ -27250,7 +27259,7 @@ blockquote p {
   .page_banner .content_wrapper {
     padding: 70px;
     text-align: center;
-    background-size: 300px;
+    background-size: 244px;
   }
   .breadcrumb_nav {
     justify-content: center;
@@ -27357,6 +27366,11 @@ blockquote p {
   .breadcrumb_nav > li {
     font-size: 14px;
     line-height: 18px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .site_header.sticky .main_menu {
+    top: 110px;
   }
 }
 @media screen and (max-width: 680px) {
@@ -27550,9 +27564,9 @@ blockquote p {
   .main_menu {
     top: 82px;
   }
-  .site_header.sticky .main_menu {
-    top: 62px;
-  }
+  /* .site_header.sticky .main_menu {
+    top: 110px!important;
+  } */
   .site_header_1 + main {
     padding-top: 82px;
   }
@@ -27636,7 +27650,8 @@ blockquote p {
     margin-bottom: 18px;
   }
   .page_banner .content_wrapper {
-    min-height: auto;
+    /* min-height: auto; */
+    /* min-height: 400px; */
   }
   .section_space_lg {
     padding-top: 60px;
@@ -27662,9 +27677,9 @@ blockquote p {
   .main_menu {
     top: 77px;
   }
-  .site_header.sticky .main_menu {
+  /* .site_header.sticky .main_menu {
     top: 56px;
-  }
+  } */
   .page_title {
     font-size: 36px;
     line-height: 40px;
@@ -27691,9 +27706,9 @@ blockquote p {
   .main_menu {
     top: 73px;
   }
-  .site_header.sticky .main_menu {
+  /* .site_header.sticky .main_menu {
     top: 52px;
-  }
+  } */
 } /*! name: @uvarov.frontend/vanilla-calendar | url: https://github.com/uvarov-frontend/vanilla-calendar */
 .vanilla-calendar {
   width: 280px;

@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "../api/axios";
 import { useTranslation } from "react-i18next";
 import ReactPaginate from "react-paginate";
+import Discount from "../components/Discount";
 function CountryStudy({ lang, setLang }) {
   console.log(useParams());
   let { country } = useParams();
@@ -40,6 +41,8 @@ function CountryStudy({ lang, setLang }) {
   useEffect(() => {
     let locales = countryData?.attributes?.localizations?.data;
     console.log(countryData?.attributes?.localizations?.data);
+    // getCountries();
+    console.log(countryData);
     let langId = locales?.find((l) => l?.attributes?.locale == lang);
     console.log(langId?.id);
     axios
@@ -159,17 +162,17 @@ function CountryStudy({ lang, setLang }) {
                 ))}
                 <div className="pagination_wrap">
                   {/* <ul > */}
-                    <ReactPaginate
-                      breakLabel="..."
-                      nextLabel=">"
-                      onPageChange={handlePageClick}
-                      pageRangeDisplayed={5}
-                      pageCount={pageCount}
-                      previousLabel="<"
-                      renderOnZeroPageCount={null}
-                      className="pagination_nav unordered_list"
-                    />
-                    {/* <li>
+                  <ReactPaginate
+                    breakLabel="..."
+                    nextLabel=">"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={5}
+                    pageCount={pageCount}
+                    previousLabel="<"
+                    renderOnZeroPageCount={null}
+                    className="pagination_nav unordered_list"
+                  />
+                  {/* <li>
                       <a href="#!">
                         <i className="fas fa-long-arrow-left"></i>
                       </a>
@@ -200,42 +203,7 @@ function CountryStudy({ lang, setLang }) {
             </div>
           </div>
         </section>
-        <section className="newslatter_section">
-          <div className="container">
-            <div
-              className="newslatter_box"
-              style={{
-                backgroundImage:
-                  "url(`/images/shape/shape_img_6.svg`)",
-              }}
-              //   style="background-image: url(/images/shape/shape_img_6.svg)"
-            >
-              <div className="row justify-content-center">
-                <div className="col col-lg-6">
-                  <div className="section_heading text-center">
-                    <h2 className="heading_text">{t("slogan4")}</h2>
-                    <p className="heading_description mb-0">{t("text4")}</p>
-                  </div>
-                  <form action="#">
-                    <div className="form_item m-0">
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder={t("yourEmail")}
-                      />
-                      <button type="submit" className="btn btn_dark">
-                        <span>
-                          <small>{t("send")}</small>
-                          <small>{t("send")}</small>
-                        </span>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Discount/>
       </main>
     </>
   );
