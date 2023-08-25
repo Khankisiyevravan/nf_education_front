@@ -7,7 +7,7 @@ import Discount from "../components/Discount";
 function University({ lang, setLang }) {
   let { country } = useParams();
   let { university } = useParams();
-  const { t } = useTranslation(["university"]);
+  const { t } = useTranslation(["university", "home"]);
   console.log(university);
   const [universityData, setUniversityData] = useState([]);
   const [specialties, setSpeacialties] = useState([]);
@@ -66,12 +66,19 @@ function University({ lang, setLang }) {
                 <div className="col col-lg-7">
                   <ul className="breadcrumb_nav unordered_list">
                     <li>
-                      <a href="index.html">Home</a>
+                      <Link to="/">{t("home:home")}</Link>
                     </li>
                     <li>
-                      <a href="course.html">Course</a>
+                      <Link
+                        to={`/abroadstudy/${universityData?.attributes?.country?.data?.id}`}
+                      >
+                        {
+                          universityData?.attributes?.country?.data?.attributes
+                            ?.title
+                        }
+                      </Link>
                     </li>
-                    <li>Course Details V.1</li>
+                    <li>{t("home:university")}</li>
                   </ul>
                   <h1 className="page_title">
                     {universityData?.attributes?.name}
@@ -120,8 +127,8 @@ function University({ lang, setLang }) {
                     <li>
                       <a href="pricing.html" className="btn btn_dark">
                         <span>
-                          <small>{t("apply")}</small>
-                          <small>{t("apply")}</small>
+                          <small>{t("university:apply")}</small>
+                          <small>{t("university:apply")}</small>
                         </span>
                       </a>
                     </li>
@@ -172,7 +179,10 @@ function University({ lang, setLang }) {
               <div className="col col-lg-6">
                 <div className="content_wrap">
                   <div className="section_heading">
-                    <h2 className="heading_text mb-0"> {t("specialties")}:</h2>
+                    <h2 className="heading_text mb-0">
+                      {" "}
+                      {t("university:specialties")}:
+                    </h2>
                   </div>
                   <ul className="info_list unordered_list_block specialist">
                     {specialties?.map((s) => (
@@ -211,7 +221,7 @@ function University({ lang, setLang }) {
                     />
                   </div>
                   <div className="item_content">
-                    <h3 className="item_title">{t("courseType")}</h3>
+                    <h3 className="item_title">{t("university:courseType")}</h3>
                     <ul className="info_list unordered_list_block">
                       {universityData?.attributes?.teshil_formati?.map((u) => (
                         <li>
@@ -232,7 +242,9 @@ function University({ lang, setLang }) {
                     />
                   </div>
                   <div className="item_content">
-                    <h3 className="item_title">{t("universityDuration")}</h3>
+                    <h3 className="item_title">
+                      {t("university:universityDuration")}
+                    </h3>
                     <ul className="info_list unordered_list_block">
                       <li>
                         <i className="fas fa-square"></i>{" "}
@@ -259,7 +271,7 @@ function University({ lang, setLang }) {
                     margin: "20px 0",
                   }}
                 >
-                  {t("students")}
+                  {t("university:students")}
                 </h2>
               </div>
               <div className="row">
@@ -388,7 +400,7 @@ function University({ lang, setLang }) {
         <section className="courses_section section_space_lg">
           <div className="container">
             <div className="section_heading text-center">
-              <h2 className="heading_text mb-0">{t("news")}</h2>
+              <h2 className="heading_text mb-0">{t("university:news")}</h2>
             </div>
             <div className="row">
               {news.map((n, index) => (
@@ -417,7 +429,9 @@ function University({ lang, setLang }) {
                         <a href="course_details.html">{n?.attributes.Basliq}</a>
                       </h3>
                       <a className="btn_unfill" href="course_details.html">
-                        <span className="btn_text">{t("readmore")}</span>
+                        <span className="btn_text">
+                          {t("university:readmore")}
+                        </span>
                         <span className="btn_icon">
                           <i className="fas fa-long-arrow-right"></i>
                           <i className="fas fa-long-arrow-right"></i>

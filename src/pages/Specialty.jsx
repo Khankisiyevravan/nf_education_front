@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../api/axios";
 
-function Specialty() {
+function Specialty({lang,setLang}) {
   // /api/ixtisaslars/:id
   let { country } = useParams();
   let { university } = useParams();
@@ -11,15 +11,20 @@ function Specialty() {
   console.log(country, university, special);
   useEffect(() => {
     axios
-      .get(`/api/ixtisaslars/${special}?populate=*`)
+      .get(`/api/ixtisaslars/${special}?populate=deep`)
       .then((a) => {
         console.log(a?.data?.data?.attributes);
-        setSpecialtyData(a?.data?.data?.attributes);
+        if(a?.data?.data?.attributes?.locale === lang){
+
+          setSpecialtyData(a?.data?.data?.attributes);
+        }else{
+          console.log(a?.data?.data?.attributes?.localizations);
+        }
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [lang]);
   return (
     <>
       <main className="page_content">

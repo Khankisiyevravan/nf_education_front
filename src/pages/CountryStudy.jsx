@@ -74,9 +74,9 @@ function CountryStudy({ lang, setLang }) {
                 <div className="col col-lg-8">
                   <ul className="breadcrumb_nav unordered_list">
                     <li>
-                      <a href="index.html">Home</a>
+                      <Link to="/">{t("home")}</Link>
                     </li>
-                    <li>Courses</li>
+                    <li>{countryData?.attributes?.title}</li>
                   </ul>
                   <h1 className="page_title">
                     {countryData?.attributes?.title?.toUpperCase()}
@@ -203,7 +203,7 @@ function CountryStudy({ lang, setLang }) {
             </div>
           </div>
         </section>
-        <Discount/>
+        <Discount />
       </main>
     </>
   );
