@@ -13,7 +13,7 @@ function Discount() {
   const sendMail = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:1337/api/mails", {
+      .post("/api/mails", {
         data: mail,
       })
       .then((response) => {
@@ -23,6 +23,7 @@ function Discount() {
         setMail({ mail: "" });
       })
       .catch((err) => {
+        console.log(mail);
         console.log(err);
         setModalShow(true);
         setModalMessage("error");

@@ -15,7 +15,7 @@ function Consultation() {
   const getConsultation = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:1337/api/consultations", {
+      .post("/api/consultations", {
         data: consultationData,
       })
       .then((response) => {
