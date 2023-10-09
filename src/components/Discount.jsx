@@ -41,6 +41,7 @@ function Discount() {
       ) : (
         ""
       )}
+      
       <section className="newslatter_section">
         <div className="container">
           <div
