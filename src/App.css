@@ -286,3 +286,10 @@ header select option[value="tr"] {
 .css-qbdosj-Input input {
   display: none;
 }
+
+.css-hlgwow {
+  padding: 2px 0 !important;
+}
+header ul li > div > div > div {
+  padding: 2px 0 !important;
+}
