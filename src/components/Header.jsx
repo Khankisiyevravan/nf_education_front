@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import axios from "../api/axios";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import Select from "react-select";
 function Header({ lang, setLang }) {
   const headerRef = useRef();
   const location = useLocation();
@@ -12,8 +13,8 @@ function Header({ lang, setLang }) {
   // console.log(t);
   const changeHandleLanguage = (e) => {
     // console.log();
-    i18next.changeLanguage(e.target.value);
-    setLang(e.target.value);
+    i18next.changeLanguage(e.value);
+    setLang(e.value);
   };
   const openDropdown = (e) => {
     // e.target.classList.toggle("show");
@@ -67,15 +68,106 @@ function Header({ lang, setLang }) {
   }, [lang]);
   useEffect(() => {
     [...document.querySelectorAll(".dropdown-menu")].map((a) => {
-      // console.log(a);
-      a.classList.remove("show");
-      setNavbarShow(false);
+      return () => {
+        a.classList.remove("show");
+        setNavbarShow(false);
+      };
     });
     document
       ?.querySelector(".mobile_menu_btn")
       ?.setAttribute("aria-expanded", "false");
     console.log(location);
   }, [location]);
+  const options = [
+    {
+      value: "az",
+      label: (
+        <div>
+          <img
+            style={{
+              width: "35px",
+              height: "20px",
+              objectFit: "cover",
+              paddingRight: "5px",
+            }}
+            src="/images/flag/flag_az.png"
+            alt=""
+          />
+          AZ
+        </div>
+      ),
+    },
+    {
+      value: "en",
+      label: (
+        <div>
+          <img
+            style={{
+              width: "35px",
+              height: "20px",
+              objectFit: "cover",
+              paddingRight: "5px",
+            }}
+            src="/images/flag/flag_en.png"
+            alt=""
+          />
+          EN
+        </div>
+      ),
+    },
+    {
+      value: "uk",
+      label: (
+        <div>
+          <img
+            style={{
+              width: "35px",
+              height: "20px",
+              objectFit: "cover",
+              paddingRight: "5px",
+            }}
+            src="/images/flag/flag_uk.png"
+            alt=""
+          />
+          UK
+        </div>
+      ),
+    },
+    {
+      value: "tr",
+      label: (
+        <div>
+          <img
+            style={{
+              width: "35px",
+              height: "20px",
+              objectFit: "cover",
+              paddingRight: "5px",
+            }}
+            src="/images/flag/flag_tr.png"
+            alt=""
+          />
+          TR
+        </div>
+      ),
+    },
+  ];
+  const customStyles = {
+    option: (defaultStyles, state) => ({
+      ...defaultStyles,
+      color: state.isSelected ? "#fff" : "#000",
+      backgroundColor: state.isSelected ? "#a0a0a0" : "#fff",
+    }),
+
+    control: (defaultStyles) => ({
+      ...defaultStyles,
+      backgroundColor: "#035ab2",
+      padding: "2px 10px",
+      border: "1px solid black",
+      boxShadow: "none",
+    }),
+    singleValue: (defaultStyles) => ({ ...defaultStyles, color: "#fff" }),
+  };
   return (
     <header className="site_header site_header_1" ref={headerRef}>
       <div className="container">
@@ -226,12 +318,16 @@ function Header({ lang, setLang }) {
                       {t("news")}
                     </Link>
                   </li>
-                  <li className={location.pathname === "/contact" ? "active" : ""}>
+                  <li
+                    className={location.pathname === "/contact" ? "active" : ""}
+                  >
                     <Link to="/contact" className="nav-link">
                       {t("contact")}
                     </Link>
                   </li>
-                  <li className={location.pathname === "/about" ? "active" : ""}>
+                  <li
+                    className={location.pathname === "/about" ? "active" : ""}
+                  >
                     <Link to="/about" className="nav-link">
                       {t("about")}
                     </Link>
@@ -264,7 +360,7 @@ function Header({ lang, setLang }) {
                     if (
                       e.target
                         .closest("button")
-                        .getAttribute("aria-expanded") == "true"
+                        .getAttribute("aria-expanded") === "true"
                     ) {
                       e.target
                         .closest("button")
@@ -276,33 +372,56 @@ function Header({ lang, setLang }) {
                         .setAttribute("aria-expanded", "true");
                       setNavbarShow(true);
                     }
-                    // e.target
-                    //   .closest("button")
-                    //   .setAttribute(
-                    //     "aria-expanded",
-                    //     !e.target
-                    //       .closest("button")
-                    //       .getAttribute("aria-expanded")
-                    //   );
                   }}
                 >
                   <i className="far fa-bars"></i>
                 </button>
               </li>
               <li>
-                <select
-                  defaultValue={"az"}
-                  onChange={changeHandleLanguage}
-                  value={localStorage.getItem("i18nextLng")}
-                >
-                  <option value="en">En</option>
-                  <option value="az">Az</option>
-                  <option value="uk">Uk</option>
-                  {/* <option value="ru">Ru</option> */}
-                  <option value="tr">Tr</option>
-                </select>
+                {/* <div id="change_language_div">
+                  <div className="lang_option">
+                    <img
+                      src="/images/flag/Flag_of_the_United_Kingdom.svg.png"
+                      alt=""
+                    />
+                    AZ
+                  </div>
+                </div> */}
+                <Select
+                  onChange={(e) => {
+                    console.log(e);
+                    changeHandleLanguage(e);
+                  }}
+                  // value={localStorage.getItem("i18nextLng")}
+                  options={options}
+                  styles={customStyles}
+                  defaultValue={{
+                    label: (
+                      <div>
+                        <img
+                          src={`/images/flag/flag_${localStorage.getItem(
+                            "i18nextLng"
+                          )}.png`}
+                          alt=""
+                        />
+                        {localStorage.getItem("i18nextLng").toUpperCase()}
+                      </div>
+                    ),
+                    value: localStorage.getItem("i18nextLng"),
+                  }}
+                />
               </li>
             </ul>
+            {/* <select
+              defaultValue={"az"}
+              onChange={changeHandleLanguage}
+              value={localStorage.getItem("i18nextLng")}
+            >
+              <option value="en">EN</option>
+              <option value="az">AZ</option>
+              <option value="uk">UK</option>
+              <option value="tr">TR</option>
+            </select> */}
           </div>
         </div>
       </div>
