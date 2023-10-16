@@ -360,7 +360,7 @@ function Header({ lang, setLang }) {
                     if (
                       e.target
                         .closest("button")
-                        .getAttribute("aria-expanded") === "true"
+                        .getAttribute("aria-expanded")
                     ) {
                       e.target
                         .closest("button")
