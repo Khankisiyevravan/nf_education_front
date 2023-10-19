@@ -14,6 +14,7 @@ function NewsDetail({ lang, setLang }) {
     axios
       .get(`/api/xebers/${id}?populate=deep`)
       .then((response) => {
+        console.log(response);
         // console.log(response?.data?.data);
         if (lang === response?.data?.data?.attributes?.locale) {
           setNewsDetailData(response?.data?.data);
@@ -25,12 +26,13 @@ function NewsDetail({ lang, setLang }) {
           let findNews = localizations.find(
             (l) => l?.attributes?.locale === lang
           );
-          axios.get(`/api/xebers/${findNews?.id}?populate=deep`).then((response)=>{
-            setNewsDetailData(response?.data?.data);
-            console.log(response)
-          })
+          axios
+            .get(`/api/xebers/${findNews?.id}?populate=deep`)
+            .then((response) => {
+              setNewsDetailData(response?.data?.data);
+              console.log(response);
+            });
           // console.log(findNews);
-
         }
       })
       .catch((error) => {
@@ -69,7 +71,12 @@ function NewsDetail({ lang, setLang }) {
           <div className="row">
             <div className="col col-lg-12">
               <div className="details_image">
-                <img
+                {console.log(newsDetailData)}
+                <iframe
+                  // style={{ width: "100%" }}
+                  src={newsDetailData?.attributes?.video_link}
+                ></iframe>
+                {/* <img
                   style={{ width: "100%", objectFit: "cover" }}
                   src={
                     newsDetailData?.attributes?.image
@@ -78,7 +85,7 @@ function NewsDetail({ lang, setLang }) {
                   }
                   // src="/images/blog/blog_details_image_1.jpg"
                   alt="Collab – Online Learning Platform"
-                />
+                /> */}
               </div>
               <div className="details_content">
                 <ul className="meta_info_list unordered_list">

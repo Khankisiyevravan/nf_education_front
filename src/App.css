@@ -293,3 +293,20 @@ header select option[value="tr"] {
 header ul li > div > div > div {
   padding: 2px 0 !important;
 }
+.details_image iframe{
+  /* width: 100%; */
+  /* height: auto; */
+  width: 100%;
+  /* height: ; */
+  aspect-ratio: 5/3;
+}
+@media screen and (max-width: 500px) {
+  header nav ul li ul li .dropdown-menu {
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+  header nav ul li ul li .nav-link::after {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

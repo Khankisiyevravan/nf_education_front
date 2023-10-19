@@ -19,8 +19,10 @@ function Header({ lang, setLang }) {
   const openDropdown = (e) => {
     // e.target.classList.toggle("show");
     // console.log();
-    console.log("header work");
+    // console.log("header work");
+    console.log([...e.target.classList].some((a) => a === "btn-drop"));
     if ([...e.target.classList].some((a) => a === "btn-drop")) {
+      // console.log(e.target);
       e.target
         ?.closest(".dropdown")
         ?.querySelector(".dropdown-menu")
@@ -168,6 +170,18 @@ function Header({ lang, setLang }) {
     }),
     singleValue: (defaultStyles) => ({ ...defaultStyles, color: "#fff" }),
   };
+  const openDrop = (e) => {
+    // console.log(e.target.closest(".dropdown"));
+    if (window.innerWidth < 500) {
+      e.target
+        .closest(".dropdown")
+        .querySelector(".dropdown-menu")
+        ?.classList.toggle("show");
+    }
+    console.log(window.innerWidth);
+
+    // e.target.classList.add("show");
+  };
   return (
     <header className="site_header site_header_1" ref={headerRef}>
       <div className="container">
@@ -261,7 +275,11 @@ function Header({ lang, setLang }) {
                         <li
                           key={index}
                           className="dropdown"
-                          onClick={openDropdown}
+                          onClick={(e) => {
+                            e.defaultPrevented = true;
+                            console.log(e.target);
+                            
+                          }}
                           // onMouseMove={(e) =>
                           //   e.target
                           //     ?.closest(".dropdown")
@@ -354,13 +372,35 @@ function Header({ lang, setLang }) {
                   aria-label="Toggle navigation"
                   onClick={(e) => {
                     e.target.closest("button").classList.toggle("collapsed");
+                    // console.log(
+                    //   e.target.closest("button").getAttribute("aria-expanded")
+                    // );
                     console.log(
-                      e.target.closest("button").getAttribute("aria-expanded")
+                      [...e.target?.closest("button").classList].some(
+                        (a) => a === "collapsed"
+                      )
                     );
                     if (
-                      e.target
-                        .closest("button")
-                        .getAttribute("aria-expanded")
+                      [...e.target?.closest("button").classList].some(
+                        (a) => a === "collapsed"
+                      )
+                    ) {
+                      console.log([
+                        ...document.querySelectorAll(".dropdown-menu"),
+                      ]);
+                      [...document.querySelectorAll(".dropdown-menu")].map(
+                        (a) => {
+                          a.classList?.remove("show");
+                        }
+                      );
+                    }
+                    // console.log(
+                    //   [...e.target?.closest("button").classList].some(
+                    //     (a) => a === "collapsed"
+                    //   )
+                    // );
+                    if (
+                      e.target.closest("button").getAttribute("aria-expanded")
                     ) {
                       e.target
                         .closest("button")

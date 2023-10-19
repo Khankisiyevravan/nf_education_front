@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
+import React, { useState } from "react";
 import axios from "../api/axios";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -126,17 +125,21 @@ function Contact() {
                     </div>
                     <div className="item_content">
                       <h3 className="item_title">{t("contact:location")}</h3>
-                      <p className="mb-0">Nizami</p>
-                      <p className="mb-0">Caspian Plaza</p>
+                      <p className="mb-0">Nizami, </p>
+                      <p className="mb-0">Məhəmməd Naxçıvani 15</p>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="col col-lg-7">
                 <div className="gmap_canvas">
-                  <iframe
+                  {/* <iframe
                     id="gmap_canvas_iframe"
                     src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                  ></iframe> */}
+                  <iframe
+                    id="gmap_canvas_iframe"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.1348748564888!2d49.82316367554798!3d40.3837032576495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d4a33d29223%3A0x6673075498d826a6!2sNF%20Education!5e0!3m2!1sen!2saz!4v1697535093430!5m2!1sen!2saz"
                   ></iframe>
                 </div>
               </div>
